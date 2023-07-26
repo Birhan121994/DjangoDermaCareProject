@@ -8,7 +8,10 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
+
 """
+# NB. All the social authentication and Email service secret keys are deleted for security purpose!!!! 
+
 
 from pathlib import Path
 import os
@@ -180,19 +183,6 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 SITE_ID = 1
 
-SOCIAL_AUTH_FACEBOOK_KEY = '951557996282898' 
-SOCIAL_AUTH_FACEBOOK_SECRET = 'd8eb82a08939a2e1a8a1435d004a1ec0'  
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '98560523280-2httkp3ka1aetaqf5k0k1r0vdhn29k3n.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
-
-SOCIAL_AUTH_GITHUB_KEY = '9cd91e5d02311ef9fe17'
-SOCIAL_AUTH_GITHUB_SECRET = 'd4664a7f5bae584378e729a1e7472ec8ab9c3928'
-
-SOCIAL_AUTH_TWITTER_KEY = 'NmhhYkx4YUZQVnhxMC16dXE2aFE6MTpjaQ'
-SOCIAL_AUTH_TWITTER_SECRET = 'uOhEG5qQCy6vmGOb83GCFAfHHBGQEdOjdES7j9GvzVoZNIu8a8'
-
-
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -214,11 +204,5 @@ JAZZMIN_SETTINGS = {
     "copyright": "DermaCare",
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'default from email'
-EMAIL_HOST_USER = 'dermacarecenter.org@gmail.com'
-EMAIL_HOST_PASSWORD = 'tessqzfcdodtslbw'
+
 
