@@ -1,3 +1,6 @@
+
+![DermaCareBrandLogo](https://github.com/Birhan121994/DjangoDermaCareProject/assets/111244120/d6f13d6e-7345-422b-8a30-85bc778fdca7)
+
 # DermaCare Website
 
 DermaCare Website is an AI-based full-stack website that aims to diagnose and treat human skin diseases. The website is built using four AI models that work together to provide a comprehensive skin disease detection and diagnosis system.
