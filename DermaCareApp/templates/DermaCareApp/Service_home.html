@@ -1,0 +1,66 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% block title %}
+    <title>DermaCare Website - Service</title>
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'DermaCareApp/Service.css' %}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+
+<div class="body_container">
+            <section id="services" class="section">
+                <div class=" Header">
+                    <h1>Our Services</h1>
+                </div>
+                <div class="MainBody">
+                    <div class="card">
+                        <img src="https://www.cnet.com/a/img/resize/003ff7bf85a1a57a2a57fcf043b9160f6a47a9d7/hub/2019/06/26/b2b042fc-4ae0-4a80-9ae7-11cd7eba0a59/skinvision.jpg?auto=webp&width=1200" alt="Skin Cancer">
+                        <h2>Skin Disease Detection and Classification</h2>
+                        <p>
+                            Our webapp uses a large and diverse dataset of skin images to train the deep learning algorithms, allowing for accurate and efficient detection and classification of skin diseases. The algorithms can differentiate between various skin diseases and conditions, including melanoma, psoriasis, eczema, and acne, and can also provide personalized treatment recommendations based on the specific subtype of skin disease.
+                            Using our skin disease detection and classification service is simple and user-friendly, allowing anyone with an internet connection to access this advanced technology. Our webapp is continually updated and improved to ensure the highest level of accuracy and efficiency in skin disease detection and classification.
+                        </p>
+                        <a href="http://localhost:8001" target="_blank" class="btn">Get Service</a>
+                    </div>
+        
+                    <div class="card">
+                        <img src="https://img.freepik.com/free-photo/portrait-smiling-african-american-businessman-white-shirt-eyewear-sitting-working-his-laptop-office-isolated_574295-456.jpg" alt="Acne">
+                        <h2>Appointments </h2>
+                        <p>Our appointment booking system provides users with the ability to schedule appointments with specified dermatologists for skin disease diagnosis and treatment. By using our webapp, users can browse through dermatologists based on their location, expertise, and availability. They can select a specific dermatologist based on their preference and book an appointment for a specific date and time that works for them.
+                            By using our appointment booking system, users can access the expertise of qualified dermatologists who can provide personalized treatment and care for a wide range of skin diseases and conditions. 
+                            Our appointment booking system is continually updated and improved to ensure the highest level of user satisfaction and convenience.
+                        </p>
+                        {% if user.is_authenticated and user.is_patient == False and user.is_dermatologist == True %}
+                        <a href="{% url 'manage' %}" class="btn">Manage Appointments</a>
+                        {% endif %}
+
+                        {% if user.is_authenticated and user.is_patient == True and user.is_dermatologist == False %}
+                        <a href="{% url 'Contact' %}" class="btn">Schedule Appointments</a>
+                        {% endif %}
+                    </div>
+        
+                    <div class="card3">
+                        <img src="data:image/jpeg;base64,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" alt="Eczema">
+                        <h2>Data Store</h2>
+                        <p>Our image datastore provides users with access to a wide range of images related to different skin diseases and conditions. By using our webapp, users can browse through a diverse collection of images that can be used for research, educational, or diagnostic purposes.
+                            Our image datastore includes high-quality images of various skin diseases and conditions, including melanoma, psoriasis, eczema, and acne, among others. The images are carefully selected and curated to ensure accuracy and relevance, and they are labeled and organized based on the specific skin disease or condition they represent.
+                            Users can download individual images or entire datasets from our image datastore, depending on their needs and requirements. 
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+        
+                    <div class="card">
+                        <img src="https://s.tmimgcdn.com/blog/wp-content/uploads/2019/01/Medical-Blog.jpg?x62314" alt="Psoriasis">
+                        <h2>Blog</h2>
+                        <p>Our chat page provides users with the opportunity to connect with a variety of dermatologists who specialize in different areas of dermatology. By using our webapp, users can browse through a list of dermatologists based on their area of expertise.
+                            Our chat page is designed to be user-friendly and convenient, allowing users to easily search for and connect with dermatologists in their area of interest. Users can choose to communicate with a specific dermatologist based on their preference and ask them questions related to their area of expertise.
+                            Our chat page is continually updated with new dermatologists and information to ensure that users have access to the latest and most relevant insights and advice related to dermatology. 
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </section>
+</div>
+{% endblock %}

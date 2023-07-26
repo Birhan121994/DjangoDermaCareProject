@@ -1,0 +1,127 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% block title %}
+    <title>
+        DermaCare Website - Role Choice page
+    </title>
+{% endblock %}
+
+
+{% block content %}
+<div class="body_container">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/DermaBlogPostForm.css' %}">
+    <link rel="stylesheet" href="{% static 'UserAccount/rolechoice.css' %}">
+    <style>
+        .UserDropBtnOne {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        color: #339AF0;
+        padding: 10px 30px;
+        font-size: 16px;
+        border: 1px solid #339AF0;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #fff;
+        }
+        .UserDropBtnOne div{
+            margin-left: 1rem;
+        }
+
+        .UserDropBtnOne:hover, .UserDropBtnOne:focus {
+        cursor: pointer;
+        }
+
+        .user-dropdown-content-one {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        min-width: 200px;
+        box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+        padding-right: 0.5rem;
+        z-index: 1;
+        /* margin-left: -2rem; */
+        border-top: 2px solid #339AF0;
+        border-bottom: 2px solid #339AF0;
+        margin-top: 10rem;
+        }
+
+        .user-dropdown-content-one a {
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+        text-transform: capitalize;
+        
+        }
+        .user-dropdown-content-one div{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        /* .logout_icon{
+            margin-left: 1rem;
+        }
+        .login_icon{
+            margin-left: 0.5rem;
+        }
+        .help_icon{
+            margin-left: -0.5rem;
+        } */
+        .user-dropdown-content-one a:hover {
+            color: #339AF0;
+
+        }
+
+        .show {
+            display:block;
+        }
+</style>
+
+<script>
+
+function myFunction2() {
+document.getElementById("userDropdownOne").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+if (!event.target.matches('.UserDropBtnOne')) {
+    var dropdowns = document.getElementsByClassName(".user-dropdown-content-one");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+    }
+    }
+}
+}
+
+</script>
+    <div class="Role-choice-container">
+        <div class="RoleChoice-logo">
+            <img src="{% static 'images/DermaCareBrandLogo.jpg' %}">
+        </div>
+        <div class="RoleChoice-selectbox">
+            <button onclick="myFunction2()" class="UserDropBtnOne">
+
+                <div>Select your role</div>
+                <div><img width="24" height="24" src="https://img.icons8.com/material-rounded/24/339AF0/sort-down.png" alt="sort-down"/></div>
+            </button>
+        </div>
+        <div id="userDropdownOne" class="user-dropdown-content-one">
+            <!-- <div> -->
+                <a href="{% url 'PatientRegister' %}">Patient Signup</a>
+                <a href="{% url 'DermaRegister' %}">Derma Signup</a>
+                <a href="{% url 'HomePage' %}">Back</a>
+            <!-- </div> -->
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

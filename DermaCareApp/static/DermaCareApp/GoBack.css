@@ -1,0 +1,32 @@
+   .GHeader{
+        margin-top: 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        color: #339AF0;
+        flex-direction: row;
+        font-size: 20px;
+    }
+    .Back{
+        margin-top: 0.2rem;
+        width:28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid #339AF0;
+        margin-left: 1rem;
+        cursor: pointer;
+    }
+    .Back:hover{
+        margin-top: 0.2rem;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        margin-left: 1rem;
+        cursor: pointer;
+    }
+    .Back a img{
+        width: 18px;
+        height: 18px;
+        align-items: left;
+    }

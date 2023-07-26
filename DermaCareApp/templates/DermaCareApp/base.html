@@ -1,0 +1,400 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+            {% block title %}
+            <title> DermaCare Website</title>
+            {% endblock %}
+
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="{% static 'DermaCareApp/base.css' %}">
+            <script src="{% static 'DermaCareApp/app.js'%}"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>          
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
+            <style>
+                    .UserDropBtn {
+                    color: white;
+                    padding: 16px;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    }
+
+                    .UserDropBtn:hover, .UserDropBtn:focus {
+                    cursor: pointer;
+                    }
+
+                    .user-dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: #fff;
+                    min-width: 100px;
+                    box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+                    padding-right: 0.5rem;
+                    z-index: 1;
+                    margin-left: -3.5rem;
+                    border-top: 2px solid #339AF0;
+                    border-bottom: 2px solid #339AF0;
+                    }
+
+                    .user-dropdown-content a {
+                    font-family:Verdana, Geneva, Tahoma, sans-serif;
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    
+                    }
+                    .user-dropdown-content div{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .logout_icon{
+                        margin-left: 1rem;
+                    }
+                    .login_icon{
+                        margin-left: 0.5rem;
+                    }
+                    .help_icon{
+                        margin-left: -0.5rem;
+                    }
+                    .user-dropdown-content a:hover {
+                        color: #339AF0;
+
+                    }
+
+                    .show {
+                        display:block;
+                    }
+        </style>
+
+        <script>
+
+            function myFunction() {
+            document.getElementById("userDropdown").classList.toggle("show");
+            }
+
+            window.onclick = function(event) {
+            if (!event.target.matches('.UserDropBtn')) {
+                var dropdowns = document.getElementsByClassName(".user-dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+            }
+
+        </script>
+                    
+   
+        </head>
+
+    <body>
+        <div class="Header_div_Container">
+            <div class="Header_div_part_one">
+                <div class="Header_div_location">
+                    <div class="header_location_icon_label">
+                        <img src="https://img.icons8.com/ios/15/339AF0/marker--v1.png"/>
+                        <label>4321Bahir-Dar University, Ethiopia</label>
+                    </div>
+                </div>
+                <div class="Header_div_date">
+                    <div class="Header_date_time_icon_label">
+                        <img src="https://img.icons8.com/material-outlined/15/339AF0/clock--v1.png"/>
+                        <label>Monday-Sunday,02-30-12:30</label>
+                    </div>
+                </div>
+                <div class="Header_div_phone">
+                    <div class="Header_div_phone_icon_label">
+                        <img src="https://img.icons8.com/ios/16/339AF0/phone--v1.png"/>
+                        <label>+2519-785-657-890</label>
+                    </div>
+                </div>
+                <div class="Header_div_account">
+                    
+                        
+                    <img width="20" height="20" src="https://img.icons8.com/ios-filled/20/339AF0/caduceus.png" alt="caduceus"/>
+                                <!-- {% if user.is_authenticated and user.is_superuser == False%}
+                                {% if user.userprofile.profile_picture %}
+                                    <a href="{% url 'UpdateUserProfilePage' user.userprofile.id %}">
+                                        <img src="{{user.userprofile.profile_picture.url}}" width = "40" height="40" class="profile_image_topbar">
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'CreateUserProfilePage' user.id %}">
+                                        <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                                    </a>
+                                 {% endif %}
+        
+                            {% elif user.is_authenticated and user.is_superuser == True %}
+                            Welcome,{{user.username}} <a href="{% url 'adminpage' %}" class="dashboard_link">Dashboard</a>
+                            {% else %}
+                            Logged out
+                            {% endif %} -->
+                              
+                    
+                </div>
+            </div>
+            <div class="Header_div_part_two">
+                <div class="Header_div_part_two_subpartone">
+                    <div class="logo_title_container">
+                        <div class="logo">
+                            <img src="{% static 'images/DermaCareBrandLogo.jpg' %}">
+                        </div>
+                        <div class="title_of_web"></div>
+                    </div>
+                </div>
+                <div class="Header_div_part_two_subparttwo">
+                    <div class="Home_page">
+                            <a href="{% url 'HomePage' %}">Home</a>
+                    </div>
+                    <div class="Blog_page">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'DermaBlogPage' %}">Blog</a>
+                        {% else %}
+                            <a href="{% url 'login'%}">Blog</a>
+                        {% endif %}
+                    </div>
+                    <div class="Chat_Page">
+                        
+                            <a href="{% url 'chatview'%} ">Chat</a>
+                        
+                    </div>
+                    <div class="Servives_page">
+                        {% if user.is_authenticated %}
+                            <!-- <a href="{% url 'streamlit_App_View' %}">Service</a> -->
+                            <a href="{% url 'servicehome'%}">Service</a>
+                        {% else %}
+                            <a href="{% url 'login' %}">Service</a>
+                        {% endif %}
+                        
+                    </div>
+                    <div class="Data_store_page">
+                        <a href="{% url 'gallery' %}">Data Store</a>
+                    </div>
+                    <div class="About_page">
+                        
+                            <a href="{% url 'AboutPage' %}">About Us</a>
+                        
+                    </div>
+                    <div class="Contact_page">
+                        
+                            <a href="{% url 'Contact' %}">Contact Us</a>
+                        
+                    </div>
+                </div>
+                    <div class="Search_part">
+
+                        <form method="POST" action="{% url 'searchviewpage' %}">
+                            {% csrf_token %}
+                            <div class="Search_part_form">
+                                <div class="search_menu">
+
+                                    <input type="text" name="search" id="searchbox" placeholder="SEARCH">
+                                </div>
+                                <div class="search_icon">
+                                    <button type="submit" class="search_btn"><img src="https://img.icons8.com/ios-glyphs/24/B4B0B0/search--v1.png"/></button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+
+                    <div class="Header_div_account_icon">
+                            
+                             <button onclick="myFunction()" class="UserDropBtn">
+                                {% if user.is_authenticated and user.is_superuser == False%}
+                                    {% if user.userprofile.profile_picture %}
+                                        <a href="{% url 'UpdateUserProfilePage' user.userprofile.id %}">
+                                            <img src="{{user.userprofile.profile_picture.url}}" width = "40" height="40" class="profile_image_topbar">
+                                        </a>
+                                        {% else %}
+                                        <a href="{% url 'CreateUserProfilePage' user.id %}">
+                                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="40" height="40" class="profile_image_topbar">
+                                        </a>
+                                    {% endif %}
+        
+                                {% elif user.is_authenticated and user.is_superuser == True %}
+
+                                    <a href="{% url 'adminpage' %}" class="dashboard_link">
+                                        <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="35" height="35" class="profile_image_topbar">
+                                    </a>
+                                {% else %}
+                                <img src="https://img.icons8.com/fluency-systems-regular/26/339AF0/user.png"/>
+                                {% endif %}
+                                    
+                            </button>
+                            {% if user.is_authenticated == False%}
+                                <div id="userDropdown" class="user-dropdown-content">
+                                   
+                                <div>
+                                    <img src="https://img.icons8.com/external-gradak-royyan-wijaya/18/339AF0/external-arrow-basic-interface-iii-gradak-royyan-wijaya-2.png" class="login_icon"/>
+                                    <div><a href="{% url 'login' %}">Sign in</a></div>
+                                </div>
+                                    
+
+                                <!-- <div>
+                                    <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/18/339AF0/external-logout-ui-essentials-kmg-design-basic-outline-kmg-design.png" class="logout_icon"/>
+                                  <div>
+                                    <a href="{%url 'logout' %}">Sign out</a>
+                                  </div>
+                                    
+                                </div> -->
+
+                                <div>
+                                    <img src="https://img.icons8.com/ios/18/339AF0/help--v1.png" class="help_icon"/>
+                                    <div>
+                                        <a href="#">Help</a>
+                                    </div>
+                                </div>
+                                  
+                                  
+                                </div>
+                            {% endif %}
+                              
+                    </div>    
+                    
+                    
+
+
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <hr>
+                        <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/logo.png" alt="">
+                        <hr>
+                        <a href="#">Home</a>
+                        <hr>
+                        <a href="#">Blog</a>
+                        <hr>
+                        <a href="#">Chat</a>
+                        <hr>
+                        <a href="#">Services</a>
+                        <hr>
+                        <a href="#">Data store</a>
+                        <hr>
+                        <a href="#">About us</a>
+                        <hr>
+                        <a href="#">Contact us</a>
+
+
+                        
+                    </div>
+
+
+                    <div class="HambergerMenu">
+                        <button onclick="openNav()">
+                            <img src="https://img.icons8.com/fluency/30/null/menu-rounded.png"/>
+                        </button>
+                    </div>
+
+                    
+
+            </div>
+        </div>
+
+        {% block content%}
+        <div class="body_container">
+        </div>
+        
+        {% endblock %}
+
+        <div class="footer_container">
+            <div class="footer_continer_partone">
+                <div class="footer_subpartone">
+                    
+                    <img src="{% static 'images/Sepe-Recovered.png' %}">
+                </div>
+                <div class="footer_subparttwo">
+
+                    <p>Sed magna nulla, pulvinar vel ante vel, fringilla vulputate nibh. Dictum, 
+                       placerat massa non, bibendum ante. Sed magna nulla, pulvinar vel ante vel, 
+                       fringilla vulputate nibh.</p>
+                </div>
+                <div class="footer_subpartthree">
+                    <p>(c) promo-theme.com 2016</p>
+                </div>
+            </div>
+             <div class="footer_continer_parttwo">
+                <div class="footer_subpartfour">
+                    <h3>Contact us:</h3>
+                </div>
+                <div class="footer_subpartfive">
+                    <div class="subpartfive_partone">
+                        <img src="https://img.icons8.com/ios/15/339AF0/marker--v1.png"/>
+                        <label>4321Bahir-Dar University, Ethiopia</label>
+                    </div>
+                    <div class="subpartfive_parttwo">
+                        <img src="https://img.icons8.com/material-outlined/15/339AF0/clock--v1.png"/>
+                        <label>Monday-Sunday,02-30-12:30</label>
+                    </div>
+                    <div class="subpartfive_partthree">
+                        <img src="https://img.icons8.com/ios/16/339AF0/phone--v1.png"/>
+                        <label>+2519-785-657-890</label>
+                    </div>
+                </div>
+                <div class="footer_subpartsix">
+                    <h3>Stay in touch:</h3>
+                </div>
+                <div class="footer_subpartseven">
+                    <div class="Email_input_field">
+                        <input type="email" name="email" id="first_email" placeholder="Enter your e-mail here...">
+                    </div>
+                    <div class="Subscribe_button">
+                        <button class="Subscribe_btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+             <div class="footer_continer_partthree">
+                <div class="footer_subparteight">
+                    <h3>Links:</h3>
+                </div>
+                <div class="footer_subpartnine">
+                    <div>
+                        <a href="">Home</a>
+                    </div>
+                    <div>
+                        <a href="">Blog</a>
+                    </div>
+                    <div>
+                        <a href="">Services</a>
+                    </div>
+                    <div>
+                        <a href="">Chat</a>
+                    </div>
+                    <div>
+                        <a href="">Data Store</a>
+                    </div>
+                    <div>
+                        <a href="">About us</a>
+                    </div>
+                    <div>
+                        <a href="">Contact us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_container_partfour">
+                <div class="followus"><h3>Follow us:</h3></div>
+                <div class="links">
+                <div class="facebook"><a href="">FaceBook</a></div>
+                <div class="youtube"><a href="">Youtube</a></div>
+                <div class="twitter"><a href="">twitter</a></div>
+                <div class="telegram"><a href="">telegram</a></div>
+                <div class="telegram"><a href="">telegram</a></div>
+                <div class="telegram"><a href="">tele</a></div>
+                <div class="telegram"><a href="">tele</a></div>
+            </div>
+            </div> 
+        </div>
+    </body>
+
+
+</html>

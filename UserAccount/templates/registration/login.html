@@ -1,0 +1,100 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}
+<title>DermaCare Website - Login Page</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="body_container">
+
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/DermaBlogPostForm.css' %}">
+    <link rel = "stylesheet" href="{% static 'UserAccount/login.css' %}">
+
+    <div class="Login_container">
+        <div class="login_part_one">
+            <img src="https://st.depositphotos.com/1770836/1357/i/600/depositphotos_13576597-stock-photo-female-doctor-or-nurse.jpg">
+        </div>
+        <div class="login_part_two">
+            <div class="login_header">
+                <h2>Welcome , Dear user</h2>
+            </div>
+           
+            <div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="login_form">
+                        {% if message %}
+                    <div class="message_container">
+                        {{ message }}
+                    </div>
+                   {%endif %}
+                        <!-- <input type="text" name="username" class="username" placeholder="Username" required>
+                        <input type="password" name="password" class="password" placeholder="Password" required> -->
+                       <div>
+                        {% render_field form.username type="text" class="username" placeholder="Username" %}
+                       </div>
+
+                       <div>
+                        {% render_field form.password type="password" class="password" placeholder="Password" %}
+                       </div>
+                        <button class="signin-btn">Sign in</button>
+                    </div>
+                </form>
+            </div>
+
+            
+
+            <div class="or_part">
+                <div>
+                    <hr>
+                </div>
+                <div class="or">
+                    OR
+                </div>
+                <div>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="social_media_links">
+                <div>
+                    <a href="{% url 'social:begin' 'google-oauth2' %}">
+                        <img src="https://img.icons8.com/ios-glyphs/20/FFFFFF/google-logo--v1.png"/>
+                    </a>
+                </div>
+                <div>
+                    <a href="{% url 'social:begin' 'facebook' %}">
+                        <img src="https://img.icons8.com/material-rounded/20/FFFFFF/facebook-f--v2.png"/>
+                    </a>
+                </div>
+                <div>
+                    <a href="{% url 'social:begin' 'github' %}">
+                        <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/github.png"/>
+                    </a>
+                </div>
+                <div>
+                    <a href="{% url 'social:begin' 'twitter' %}">
+                        <img src="https://img.icons8.com/ios-glyphs/20/FFFFFF/twitter--v1.png"/>
+                    </a>
+                </div>
+            </div>
+            <div class="forgot_password">
+                <a href="{% url 'password_reset' %}">Forgot Password?</a>
+            </div>
+            <div class="create_account">
+                <a href="{% url 'RoleChoicePage' %}">Create an account? Sign up</a>
+            </div>
+            
+            <div class="login-footer">
+
+            </div>
+            
+        </div>
+    </div>
+ 
+</div>
+
+{% endblock %}

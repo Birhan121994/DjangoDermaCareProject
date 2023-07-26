@@ -1,0 +1,58 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% block title %}
+    <title>DermaCare Website - Gallery</title>
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'DermaCareApp/Catagory.css' %}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/GoBack.css' %}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+<script src="{% static 'DermaCareApp/Catagory.js' %}" defer></script>
+
+<div class="body_container">
+    <div class="Container">
+    <div class="Whole-Container">
+        <div class="GHeader">
+            <div>
+            <h2>Eczema</h2>
+            </div>
+            <div class="Back"><a href="{% url 'gallery'%}"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABa0lEQVR4nO2Zv07DMBCHb2GF12Ctr+IdYKBCAjHAIwES4zkPwoOwMFGpoE4ovpQRpKIrm5s/RmnSM7pP8pJElj7/fDdcAAzjfzMp+FoW5AwSXzkfvhyF70lR3ULOEuh5LStLmVgCc5RpksCcZLokMAeZVAnULCPtNZaorRG//Y2a1lyXhJy283yznUS4rPt278m0SWzeRyKweaZMpkuiSUSVTIpEm4gKGfTlLLVo20Tam0Q5g6FxxG+pnadLpFGGeAFDgz4sU9tniki9TFjCKFeLeOGIX7uuQKqIIHuh57nsPaXyHDTxFxHVmIg2LBFtWCLasES0YYlowxLRhiWiDUtEG5aIJk4ePw6jycgKcsT5cBGJPENuIJVHjsJLVCN3kNN1kiRiCSczK1od99oci+pM5kWpP2CGWI74vvcpoef3fUqgD09I64Odz2pHS0H+r3t+2ImEMKXq9He8OYrAp3QnKezeNWEYBqTwA/qOfNf8Iqj0AAAAAElFTkSuQmCC"></a></div>
+        </div>
+        <div class="Image-Container">
+            <div class="Image"><img src="{% static 'EczemaImg/1.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/2.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/3.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/4.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/5.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/6.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/7.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/8.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/9.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/10.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/11.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/12.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/13.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/14.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/15.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/16.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/17.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/18.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/19.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/20.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/21.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/22.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/23.jpg' %}" alt=""></div>
+            <div class="Image"><img src="{% static 'EczemaImg/10.jpg' %}" alt=""></div>
+          
+        </div>
+       
+        <div class="Popup-Image">
+            <span>&times;</span>
+            <img src="{% static 'Images/3.jpg' %}" alt="">
+        </div>
+ </div>
+</div>
+</div>
+{% endblock %}

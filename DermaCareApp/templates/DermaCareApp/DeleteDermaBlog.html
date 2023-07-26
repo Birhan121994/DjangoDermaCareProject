@@ -1,0 +1,41 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block title %}
+<title>DermaCare Website - Delete_DermaBlogPost Page</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="body_container">
+
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/DermaBlogPostForm.css' %}">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/DeleteDermaBlog.css' %}">
+{% if user.is_authenticated and user.is_dermatologist == True%}
+    <div class="delete_blog_container">
+        <div class="logo_image">
+            <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/logo.png">
+        </div>
+        <div class="warning_info">
+            <h3>Are you sure to delete these post?</h3>
+        </div>
+        <div class="delete_button">
+            <form method="POST">
+                {% csrf_token %}
+                <button>Delete Post</button>
+            </form>
+        </div>
+    </div>
+
+{% else %}
+<br>
+<br>
+<div>
+<h2>You Can Not Delete the post!!</h2>
+
+</div>
+{% endif %}
+</div>
+
+{% endblock %}

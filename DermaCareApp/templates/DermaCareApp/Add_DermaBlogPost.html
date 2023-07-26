@@ -1,0 +1,108 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block title %}
+<title>DermaCare Website - Add_DermaBlogPost Page</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="body_container">
+
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/DermatologistBlog.css' %}">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/Add_blogpost.css'%}">
+
+    <div class="blogpost_container">
+        <div class="blogcontainer_partone">
+            {% if user.is_authenticated and user.is_dermatologist == True and user.is_patient == False %}
+                <div class="blogcontainer_partone_subpartone">
+                    <div>
+                        {% if user.userprofile.profile_picture %}
+                            <img src="{{user.userprofile.profile_picture.url}}" width = "80" height="80">
+                            {% else %}
+                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                        {% endif %}
+                    </div>
+
+                    <div class="sidebar_emailandusername">
+                        <h4 class="sidebar_username">{{user.username}}</h4>
+                        <h4>{{user.email}}</h4>
+                    </div>
+                </div>
+                <div class="blogcontainer_partone_subparttwo">
+                    <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/ios-filled/22/FFFFFF/add-property.png"/>
+                        </div>
+
+                        <div>
+                        <button><a href="{% url 'AddDermaBlogPage' %}">Publish New Post</a></button>  
+                        </div>
+                        
+                    </div>
+                    <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/windows/25/FFFFFF/add--v1.png"/>
+                        </div>
+                        <div>
+                        <button><a href="{% url 'AddSkinDiseaseCategoryView'%}">Add Category</a></button>
+                        </div>
+                    </div>
+                    <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit-user-female.png"/>
+                        </div>
+                        <div>
+                        <button><a href="{%url 'UpdateProfilePage'%}">Manage Profile</a></button>
+                        </div>
+                    </div>
+        
+                    {% endif %}
+        
+                    {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True%}
+                            <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/22/FFFFFF/external-logout-ui-essentials-kmg-design-basic-outline-kmg-design.png"/>
+                                </div>
+                                <div>
+                                <button><a href="{% url 'DermaBlogPage' %}">Back</a></button>
+                                </div>
+                            </div>
+                            <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/ios/22/FFFFFF/help--v1.png"/>
+                                </div>
+                                <div>
+                                <button class="help_btn"><a href="#">Help</a></button>
+                                </div>
+                            </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="blogcontainer_parttwo">
+            <h2>Publish New Dermatology Blog Post</h2>
+            {% if user.is_authenticated and user.is_dermatologist == True and user.is_patient == False %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.media}}
+                {{form.as_p}}
+                <button class="publish_post">Publish Post</button>
+            </form>
+            {% else %}
+        
+            <h2>You Can Not Post!! Because You are the sigma</h2>
+        
+            {% endif %}
+        
+            <script>
+                var author_id = "{{user.id}}";
+                document.getElementById("author").value = author_id;
+            </script>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

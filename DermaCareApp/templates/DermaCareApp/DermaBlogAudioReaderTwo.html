@@ -1,0 +1,454 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>DermaCare Website - Dermatologists Blog Page</title>
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/DermatologistBlog.css'%}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/NoCategory.css'%}">
+<div class="body_container">
+
+    {% if user.is_authenticated == True %}
+    {% if user.is_authenticated and user.is_dermatologist == True and user.is_patient == False %}
+    <div class="blogpost_container">
+        <div class="blogcontainer_partone">
+            {% if user.is_authenticated and user.is_dermatologist == True and user.is_patient == False %}
+                <div class="blogcontainer_partone_subpartone">
+                    <div>
+                        {% if user.userprofile.profile_picture %}
+                            <a href="{% url 'UpdateUserProfilePage' user.userprofile.id %}">
+                                <img src="{{user.userprofile.profile_picture.url}}" width = "80" height="80">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'CreateUserProfilePage' user.id %}">
+                                <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                            </a>
+                        {% endif %}
+                    </div>
+
+                    <div class="sidebar_emailandusername">
+                        <h4 class="sidebar_username">{{user.username}}</h4>
+                        <h4>{{user.email}}</h4>
+                    </div>
+                </div>
+                <div class="blogcontainer_partone_subparttwo">
+                    <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/ios-filled/22/FFFFFF/add-property.png"/>
+                        </div>
+
+                        <div>
+                        <button><a href="{% url 'AddDermaBlogPage' %}">Publish New Post</a></button>  
+                        </div>
+                        
+                      </div>
+                      <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/windows/25/FFFFFF/add--v1.png"/>
+                        </div>
+                        <div>
+                          <button><a href="{% url 'AddSkinDiseaseCategoryView'%}">Add Category</a></button>
+                        </div>
+                      </div>
+                      <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit-user-female.png"/>
+                        </div>
+                        <div>
+                          <button><a href="{%url 'UpdateProfilePage'%}">Manage Profile</a></button>
+                        </div>
+                      </div>
+          
+                      {% endif %}
+          
+                      {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True%}
+                              <div class="dropdown1">
+                                <div class="filter_icon">
+                                    <img src="https://img.icons8.com/ios-glyphs/23/FFFFFF/filter-and-sort.png"/>
+                                </div>
+                                <div>
+                                    <button onclick="myFunction1()" class="UserDropBtn1">Filter Post</button>
+                                    <div id="userDropdown1" class="user-dropdown-content1">
+                                        <div>
+                                        {% for item in category_menu%}
+            
+                                        <a href="{% url 'FilterBlogPostCategory' item %}">{{item}}</a>
+                                
+                                        {% endfor %}
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+
+                              </div>
+          
+          
+                              <script>
+          
+                                  function myFunction1() {
+                                  document.getElementById("userDropdown1").classList.toggle("show1");
+                                  }
+                      
+                                  window.onclick = function(event) {
+                                  if (!event.target.matches('.UserDropBtn1')) {
+                                      var dropdowns = document.getElementsByClassName(".user-dropdown-content1");
+                                      var i;
+                                      for (i = 0; i < dropdowns.length; i++) {
+                                      var openDropdown = dropdowns[i];
+                                      if (openDropdown.classList.contains('show1')) {
+                                          openDropdown.classList.remove('show1');
+                                      }
+                                      }
+                                  }
+                                  }
+                      
+                              </script>
+          
+          
+                              <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/22/FFFFFF/external-logout-ui-essentials-kmg-design-basic-outline-kmg-design.png"/>
+                                </div>
+                                <div>
+                                  <button><a href="{% url 'logout' %}">Log out</a></button>
+                                </div>
+                              </div>
+                              <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/ios/22/FFFFFF/help--v1.png"/>
+                                </div>
+                                <div>
+                                  <button class="help_btn"><a href="#">Help</a></button>
+                                </div>
+                              </div>
+                </div>
+            
+
+            {% endif %}
+        </div>
+        <div class="blogcontainer_parttwo">
+    {% if user.is_authenticated %}
+
+            {% for post in object_list %}
+
+                {% if user.is_dermatologist == True and user.is_patient == False %}
+
+                    <div class="blogcontainer_parttwo_container">
+
+                        <div class="blogcontainer_parttwo_container_partone">
+                            
+                            <div class="blogcontainer_parttwo_container_partone_subone">
+                                {% if post.author.userprofile.id %}
+                                    <a href="{% url 'UserProfileInfoPage' post.author.userprofile.id %}">
+                                
+                                    {% if post.author.userprofile.profile_picture %}
+        
+                                        <img src="{{post.author.userprofile.profile_picture.url}}" width = "50" height="50">
+                                
+                                    {% else %}
+                                        <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                                    {% endif %}
+                                    </a>
+                                {% else %}
+                                
+                                <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50" class="dummy_profile">
+                                <!-- <a href="#" class="create_profle_link">Create Profile</a> -->
+                               
+                                {% endif %}
+                            </div>
+
+
+                            <div class="blogcontainer_parttwo_container_partone_subtwo">
+                                <div class="author_and_date">
+                                    <div class="author_name">
+                                         <h4>{{post.author}}</h4>
+                                    </div>
+
+                                    <div class="date_posted">
+                                        <small>{{post.date_posted}}</small> 
+                                    </div>
+                                </div>
+
+                                <div class="update_and_delete">
+                                {% if user.id == post.author.id %}
+
+                                  <div class="update_link">
+                                    <a href="{% url 'UpdateDermaBlogView' post.pk %}">Update Post</a>
+                                  </div>
+
+                                  <div class="delete_link">
+                                    <a href="{% url 'DeleteDermaBlogView' post.pk %}">Delete Post</a> 
+                                  </div>
+                                {% endif %}
+                                
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="blogcontainer_parttwo_container_parttwo">
+                            <div class="post_title">
+                               <a href="{% url 'DermaBlogDetailsPage' post.pk %}">{{post.title}}</a>
+                            </div>
+                            <div class="readtime">
+                                <div><img src="https://img.icons8.com/material-outlined/16/339AF0/clock--v1.png"/></div>
+                                 <div>{{post.get_readtime}} read</div>
+                                 
+                             </div>
+                            <div class="post_category_link">
+                                <a href="{% url 'FilterBlogPostCategory' post.content_category %}">Post category - {{post.content_category}}</a>
+                            </div>
+                        </div>
+
+
+                        <div class="blogcontainer_parttwo_container_partthree">
+                            <p>{{post.sub_content|safe}}</p>
+                        </div>
+
+
+                        <div class="blogcontainer_parttwo_container_partfour">
+                            <button>
+                                <a href="{% url 'DermaBlogDetailsPage' post.pk %}">Read More</a>
+                            </button>
+
+                            
+                        </div>                    
+
+                         <!-- <br> -->
+                        <!-- <form action="{% url 'BlogLikesPage' post.pk %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" name="post_id" value ="{{post.id}}">Like</button><span>{{like_value}} likes</span>
+                        </form> -->
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+
+    {% endif %}
+    
+        </div>
+    </div>  
+    {% endif %}
+
+    {% if user.is_authenticated and user.is_patient == True and user.is_dermatologist == False %}
+    <div class="blogpost_container">
+        <div class="blogcontainer_partone">
+            {% if user.is_authenticated and user.is_dermatologist == False and user.is_patient == True %}
+                <div class="blogcontainer_partone_subpartone">
+                    <div>
+                        {% if user.userprofile.profile_picture %}
+                            <a href="{% url 'UpdateUserProfilePage' user.userprofile.id %}">
+                                <img src="{{user.userprofile.profile_picture.url}}" width = "80" height="80">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'CreateUserProfilePage' user.id %}">
+                                <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                            </a>
+                        {% endif %}
+                    </div>
+
+                    <div class="sidebar_emailandusername">
+                        <h4 class="sidebar_username">{{user.username}}</h4>
+                        <h4>{{user.email}}</h4>
+                    </div>
+                </div>
+                <div class="blogcontainer_partone_subparttwo">
+                      <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit-user-female.png"/>
+                        </div>
+                        <div>
+                          <button><a href="{%url 'UpdateProfilePage'%}">Manage Profile</a></button>
+                        </div>
+                      </div>
+          
+            {% endif %}
+          
+                      {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True%}
+                              <div class="dropdown1">
+                                <div class="filter_icon">
+                                    <img src="https://img.icons8.com/ios-glyphs/23/FFFFFF/filter-and-sort.png"/>
+                                </div>
+                                <div>
+                                    <button onclick="myFunction1()" class="UserDropBtn1">Filter Post</button>
+                                    <div id="userDropdown1" class="user-dropdown-content1">
+                                        <div>
+                                        {% for item in category_menu%}
+            
+                                        <a href="{% url 'FilterBlogPostCategory' item %}">{{item}}</a>
+                                
+                                        {% endfor %}
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+
+                              </div>
+          
+          
+                              <script>
+          
+                                  function myFunction1() {
+                                  document.getElementById("userDropdown1").classList.toggle("show1");
+                                  }
+                      
+                                  window.onclick = function(event) {
+                                  if (!event.target.matches('.UserDropBtn1')) {
+                                      var dropdowns = document.getElementsByClassName(".user-dropdown-content1");
+                                      var i;
+                                      for (i = 0; i < dropdowns.length; i++) {
+                                      var openDropdown = dropdowns[i];
+                                      if (openDropdown.classList.contains('show1')) {
+                                          openDropdown.classList.remove('show1');
+                                      }
+                                      }
+                                  }
+                                  }
+                      
+                              </script>
+          
+          
+                              <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/22/FFFFFF/external-logout-ui-essentials-kmg-design-basic-outline-kmg-design.png"/>
+                                </div>
+                                <div>
+                                  <button><a href="{% url 'logout' %}">Log out</a></button>
+                                </div>
+                              </div>
+                              <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/ios/22/FFFFFF/help--v1.png"/>
+                                </div>
+                                <div>
+                                  <button class="help_btn"><a href="#">Help</a></button>
+                                </div>
+                              </div>
+                </div>
+            
+
+            {% endif %}
+        </div>
+        <div class="blogcontainer_parttwo">
+    {% if user.is_authenticated %}
+
+            {% for post in object_list %}
+
+                {% if user.is_dermatologist == True or user.is_patient == True %}
+
+                    <div class="blogcontainer_parttwo_container">
+
+                        <div class="blogcontainer_parttwo_container_partone">
+                            
+                            <div class="blogcontainer_parttwo_container_partone_subone">
+                                {% if post.author.userprofile.id %}
+                                    <a href="{% url 'UserProfileInfoPage' post.author.userprofile.id %}">
+                                
+                                    {% if post.author.userprofile.profile_picture %}
+        
+                                        <img src="{{post.author.userprofile.profile_picture.url}}" width = "50" height="50">
+                                
+                                    {% else %}
+                                        <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                                    {% endif %}
+                                    </a>
+                                {% else %}
+                                
+                                <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50" class="dummy_profile">
+                                <!-- <a href="#" class="create_profle_link">Create Profile</a> -->
+                               
+                                {% endif %}
+                            </div>
+
+
+                            <div class="blogcontainer_parttwo_container_partone_subtwo">
+                                <div class="author_and_date">
+                                    <div class="author_name">
+                                         <h4>{{post.author}}</h4>
+                                    </div>
+
+                                    <div class="date_posted">
+                                        <small>{{post.date_posted}}</small> 
+                                    </div>
+                                </div>
+                                {% if user.is_authenticated and user.is_dermatologist == True and user.is_patient == False %}
+                                <div class="update_and_delete">
+                                {% if user.id == post.author.id %}
+
+                                  <div class="update_link">
+                                    <a href="{% url 'UpdateDermaBlogView' post.pk %}">Update Post</a>
+                                  </div>
+
+                                  <div class="delete_link">
+                                    <a href="{% url 'DeleteDermaBlogView' post.pk %}">Delete Post</a> 
+                                  </div>
+                                {% endif %}
+                                
+                                </div>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        <div class="blogcontainer_parttwo_container_parttwo">
+                            <div class="post_title">
+                               <a href="{% url 'DermaBlogDetailsPage' post.pk %}">{{post.title}}</a>
+                            </div>
+                            <div class="post_category_link">
+                                <a href="{% url 'FilterBlogPostCategory' post.content_category %}">Post category - {{post.content_category}}</a>
+                            </div>
+                        </div>
+
+
+                        <div class="blogcontainer_parttwo_container_partthree">
+                            <p>{{post.sub_content|safe}}</p>
+                        </div>
+
+
+                        <div class="blogcontainer_parttwo_container_partfour">
+                            <button>
+                                <a href="{% url 'DermaBlogDetailsPage' post.pk %}">Read More</a>
+                            </button>
+                            
+                        </div>                    
+
+                         <!-- <br> -->
+                        <!-- <form action="{% url 'BlogLikesPage' post.pk %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" name="post_id" value ="{{post.id}}">Like</button><span>{{like_value}} likes</span>
+                        </form> -->
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+
+    {% endif %}
+    
+        </div>
+    </div>  
+    {% endif %}
+
+    {% else %}
+        <div class="No_Category_list_container">
+            <div>
+                <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/logo.png">
+            </div>
+            <div class="info_title">
+                <h2>You are not an authenticated user.</h2>
+                <h3>Only authenticated users can access these page.</h3>
+            </div>
+            <div class="info_detail">
+                <p>To be authenticated use the follwing link: <a href="{% url 'login' %}">Log in</a></p>
+            </div>
+        </div>
+    
+    {% endif %}
+</div>      
+
+{% endblock %}

@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Whole-Container{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+.Image img{
+    height: 270px;
+    width: 270px;
+}
+.Container{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.Whole-Container{
+    display: flex;
+    flex-direction: column;
+}
+
+.Whole-Container .Image-Container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+}
+.Container .Image-Container .Image{
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    overflow: hidden;
+    cursor: pointer;
+}
+.Container .Image-Container .Image img{
+    object-fit: cover;
+    transition: 1s linear;
+}
+.Container .Image-Container .Image:hover img{
+    transform: scale(1.2);
+}
+.Container .Popup-Image{
+    position:fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display:none;
+}
+.Container .Popup-Image span{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+    z-index: 100;
+}
+.Container .Popup-Image img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+}
+@media(max-width:768px){
+    .Container .Popup-Image img{
+        width: 95%;
+    }
+}

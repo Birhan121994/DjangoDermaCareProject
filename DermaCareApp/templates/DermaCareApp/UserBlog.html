@@ -1,0 +1,24 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>DermaCare Website - Blog Page</title>
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+<div class="body_container">
+    <h2>Blog Page</h2>  
+    {% for post in object_list %}
+    
+    <h4>By {{post.author}}   <small>{{post.date_posted}}</small> 
+    </h4>
+    <h3>{{post.title}}</h3>
+    <p>{{post.content}}</p>
+
+
+    {% endfor %}
+</div>      
+
+{% endblock %}

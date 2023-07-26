@@ -1,0 +1,776 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% load social_share %}
+{% block title %}
+    <title>DermaCare Website - Dermatologists Blog Page</title>
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/DermatologistBlogDetailsPage.css'%}">
+<div class="body_container">
+
+    {% if user.is_authenticated and user.is_dermatologist == True and user.is_patient == False %}
+    <div class="blogpost_container">
+
+        <div class="blogcontainer_partone">
+            {% if user.is_authenticated and user.is_dermatologist == True and user.is_patient == False %}
+                <div class="blogcontainer_partone_subpartone">
+                    <div>
+                        {% if user.userprofile.profile_picture %}
+                            <img src="{{user.userprofile.profile_picture.url}}" width = "80" height="80">
+                            {% else %}
+                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                        {% endif %}
+                    </div>
+
+                    <div class="sidebar_emailandusername">
+                        <h4 class="sidebar_username">{{user.username}}</h4>
+                        <h4>{{user.email}}</h4>
+                    </div>
+                </div>
+                <div class="blogcontainer_partone_subparttwo">
+                    <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/ios-filled/22/FFFFFF/add-property.png"/>
+                        </div>
+
+                        <div>
+                        <button><a href="{% url 'AddDermaBlogPage' %}">Publish New Post</a></button>  
+                        </div>
+                        
+                    </div>
+                    <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/windows/25/FFFFFF/add--v1.png"/>
+                        </div>
+                        <div>
+                        <button><a href="{% url 'AddSkinDiseaseCategoryView'%}">Add Category</a></button>
+                        </div>
+                    </div>
+                    <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit-user-female.png"/>
+                        </div>
+                        <div>
+                        <button><a href="{%url 'UpdateProfilePage'%}">Manage Profile</a></button>
+                        </div>
+                    </div>
+        
+                    {% endif %}
+        
+                    {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True%}
+                            <div class="dropdown1">
+                                <div class="filter_icon">
+                                    <img src="https://img.icons8.com/ios-glyphs/23/FFFFFF/filter-and-sort.png"/>
+                                </div>
+                                <div>
+                                    <button onclick="myFunction1()" class="UserDropBtn1">Filter Post</button>
+                                    <div id="userDropdown1" class="user-dropdown-content1">
+                                        <div>
+                                        {% for item in category_menu%}
+            
+                                        <a href="{% url 'FilterBlogPostCategory' item %}">{{item}}</a>
+                                
+                                        {% endfor %}
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+
+                            </div>
+        
+        
+                            <script>
+        
+                                function myFunction1() {
+                                document.getElementById("userDropdown1").classList.toggle("show1");
+                                }
+                    
+                                window.onclick = function(event) {
+                                if (!event.target.matches('.UserDropBtn1')) {
+                                    var dropdowns = document.getElementsByClassName(".user-dropdown-content1");
+                                    var i;
+                                    for (i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show1')) {
+                                        openDropdown.classList.remove('show1');
+                                    }
+                                    }
+                                }
+                                }
+                    
+                            </script>
+        
+        
+                            <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/22/FFFFFF/external-logout-ui-essentials-kmg-design-basic-outline-kmg-design.png"/>
+                                </div>
+                                <div>
+                                <button><a href="{% url 'DermaBlogPage' %}">Back</a></button>
+                                </div>
+                            </div>
+                            <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/ios/22/FFFFFF/help--v1.png"/>
+                                </div>
+                                <div>
+                                <button class="help_btn"><a href="#">Help</a></button>
+                                </div>
+                            </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="blogcontainer_parttwo">
+            {% if user.is_authenticated %}
+                    <div class="blogcontainer_parttwo_container_partone">
+                        <div class="blogcontainer_parttwo_container_partone_subone">
+                            {% if blogpost.author.userprofile.id %}
+                            <a href="{% url 'UserProfileInfoPage' blogpost.author.userprofile.id %}">
+                        
+                            {% if blogpost.author.userprofile.profile_picture %}
+
+                                <img src="{{blogpost.author.userprofile.profile_picture.url}}" width = "50" height="50">
+                        
+                            {% else %}
+                                <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                            {% endif %}
+                            </a>
+                            {% else %}
+                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50" class="dummy_profile">
+                            <a href="#" class="create_profle_link">Create Profile</a>
+                            {% endif %}
+                        </div>
+
+                        <div class="blogcontainer_parttwo_container_partone_subtwo">
+                            <div class="author_and_date">
+                                <div class="author_name">
+                                     <h4>{{blogpost.author}}</h4>
+                                </div>
+
+                                <div class="date_posted">
+                                    <small>{{blogpost.date_posted}}</small>
+                                </div>
+                            </div>
+
+                            <div class="update_and_delete">
+                                {% if user.is_authenticated and user.is_dermatologist == True %}
+                                    {% if user.id == blogpost.author.id %}
+
+                                    <div class="update_link">
+                                        <a href="{% url 'UpdateDermaBlogView' blogpost.pk %}">Update Post</a>
+                                    </div>
+
+                                    <div class="delete_link">
+                                        <a href="{% url 'DeleteDermaBlogView' blogpost.pk %}">Delete Post</a> 
+                                    </div>
+                                    {% endif %}
+                                
+                                {% endif %}
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="BlogPostImage">
+                        {% if blogpost.blog_image %}
+                        <img src="{{blogpost.blog_image.url}}" width="90%" height="300">
+                        {% endif %}
+                    </div>
+
+                    <div class="blogcontainer_parttwo_container_parttwo">
+
+                        <div class="post_title">
+                            <a href="{% url 'DermaBlogDetailsPage' blogpost.pk %}">{{blogpost.title}}</a>
+                         </div>
+                         <div class="readtime">
+                            <div><img src="https://img.icons8.com/material-outlined/16/339AF0/clock--v1.png"/></div>
+                             <div>{{blogpost.get_readtime}} read </div>
+                             &nbsp;&nbsp;
+                                 <div class="audio_btn">
+                                    <a href="{% url 'AudioDermaBlog' blogpost.pk %}">
+                                        <img width="20" height="20" src="https://img.icons8.com/flat-round/20/339AF0/high-volume--v1.png" alt="high-volume--v1"/>
+                                     </a>
+                                 </div>
+                         </div>
+                         <div class="post_category_link">
+                             <a href="{% url 'FilterBlogPostCategory' blogpost.content_category %}">Blog post category - {{blogpost.content_category}}</a>
+                         </div>
+                    </div>
+
+                    <div class="blogcontainer_parttwo_container_partthree">
+                        <p>{{blogpost.content|safe}}</p>
+                    </div>
+
+                    <div class="like_and_share_container">
+                        <div class="like_dislike_container">
+                            <div>
+                                <form action="{% url 'BlogLikesPage' blogpost.pk %}" method="POST">
+                                    {% csrf_token %}
+        
+                                    {% if blog_liked == True %}
+                                    <button type="submit" name = "post_id" value="{{blogpost.id}}" class="likebtn">
+                                        <img src="https://img.icons8.com/windows/30/null/thumbs-down.png"/>
+                                    </button>
+                                    {% else %}
+                                    <button type="submit" name = "post_id" value="{{blogpost.id}}" class="likebtn">
+                                        <img src="https://img.icons8.com/windows/30/null/facebook-like.png"/>
+                                    
+                                    </button>
+                                    {% endif %}
+        
+                                    
+                                </form>
+                            </div>
+                            <div class="like_dislike_container_border">
+                                <span>Likes: {{like_value}} &nbsp;&nbsp; Dislikes: {{no_dislikes}}</span>
+                            </div>
+                            <div class="no_comments">
+                                <span>comments: {{blogpost.blogcomments.all.count}} &nbsp;&nbsp; visited:{{ num_visits }}</span>
+                            </div>
+                           
+                            
+
+                        </div>
+                        <div class="share_links_container">
+                            <div>
+                                Share via : 
+                            </div>
+                            <div>
+                                {% post_to_facebook object_or_url '<img src="https://img.icons8.com/material-sharp/20/null/facebook-f.png"/>' %}
+                            </div>
+                            <div>
+                                 {% post_to_whatsapp  object_or_url '<img src="https://img.icons8.com/ios-glyphs/20/null/whatsapp.png"/>' %}
+
+                            </div>
+                            <div>
+                                 {% post_to_twitter  object_or_url '' %}
+                                
+                            </div>
+                            
+                            <div>
+                                {% post_to_telegram object_or_url '' %}
+                            </div>
+
+                            <div>
+                                {% post_to_linkedin object_or_url '' %}
+
+                           </div>
+                        </div>
+                     
+                        
+                    </div>
+
+                      <div>
+                        {% if not blogpost.blogcomments.all %}
+                        <div class="add_comment_container">
+                            <div class="add_comment_container_partone">
+                                <div>
+                                    {% if user.userprofile.profile_picture %}
+                                        <img src="{{user.userprofile.profile_picture.url}}" width = "45" height="45" class="commenter_profile_pic">
+                                    {% else %}
+                                         <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50" class="commenter_profile_pic">
+                                    {% endif %}
+                                </div>
+                                <div class="add_comment_link_div">
+                                    <a href="{% url 'AddDermaBlogCommentView' blogpost.pk %}">Add Comment....</a>
+                               </div>
+                            </div>
+                            
+                            <div>
+                                <h4>No Comment...</h4>
+                            </div>
+                        </div>
+                        
+                        {% else %}
+                        <div class="add_comment_container">
+                            <div class="add_comment_container_partone">
+                                <div>
+                                    {% if user.userprofile.profile_picture %}
+                                        <img src="{{user.userprofile.profile_picture.url}}" width = "45" height="45">
+                                    {% else %}
+                                         <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                                    {% endif %}
+                                </div>
+                                <div class="add_comment_link_div">
+                                    <a href="{% url 'AddDermaBlogCommentView' blogpost.pk %}">Add Comment....</a>
+                               </div>
+                            </div>
+                            
+                        </div>
+                        <!-- <a href="{% url 'AddDermaBlogCommentView' blogpost.pk %}">Add Comment</a> -->
+                            {% for comments in blogpost.blogcomments.all %}
+                            
+                            <div class="comment_container">
+                                <div class="comment_container_partone">
+                                    <div>
+                                        {% if comments.Commenter_name.userprofile.profile_picture %}
+
+                                            <img src="{{comments.Commenter_name.userprofile.profile_picture.url}}" width = "40" height="40">
+                                    
+                                        {% else %}
+                                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                         <strong><p>{{comments.Commenter_name}}</p></strong>
+                                    </div>
+                                    <div>
+                                        <small><p>{{comments.date_commented}}</p></small>
+                                    </div>
+                                </div>
+                                <div class="comment_content">
+                                    <p>{{comments.comment_content|safe}}</p>
+                                </div>
+                            </div>
+                            
+                            
+                                
+                                {% if not comments.replies.all %}
+                                    <div class="No_reply_container">
+                                        <h4>No Reply</h4>
+                                        <div>
+                                            <p><a href="{% url 'AddReplyToCommentView' comments.pk %}" class="reply">Add Reply</a></p>
+                                        </div>
+                                    </div>
+                                    
+                                   
+                                    {% else %}
+                                    <div class="reply_message">
+                                        <div>
+                                            <h4>{{comments.replies.all.count}} replies for {{comments.Commenter_name}} comment</h4>
+                                        </div>
+
+                                        <div>
+                                            <p><a href="{% url 'AddReplyToCommentView' comments.pk %}" class="reply">Add Reply</a></p>
+                                        </div>
+                                    </div>
+                                    
+                                        {% for reply in comments.replies.all %}
+                                           <div class="reply_comment_container">
+                                                <div class="reply_comment_container_partone">
+                                                    <div>
+                                                        {% if reply.user.userprofile.profile_picture %}
+
+                                                        <img src="{{reply.user.userprofile.profile_picture.url}}" width = "30" height="30">
+                                                
+                                                        {% else %}
+                                                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div>
+                                                        <strong><p>{{ reply.user.username }}</p></strong>
+                                                    </div>
+                                                    <div>
+                                                       <small> <p>{{ reply.date_commented }}</p></small>
+                                                    </div>
+                                                </div>
+                                                <div class="reply_comment_content">
+                                                    <p>{{ reply.reply|safe}}</p>
+                                                
+                                                     
+                                                </div>
+                                                
+                                            </div>
+                                                
+                                          
+                                            
+                                        {% endfor %}
+                                {%endif%}
+                            
+                            {% endfor %}
+                        
+                            
+
+                        {% endif %}
+
+
+                    </div>
+                    
+
+            {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if user.is_authenticated and user.is_dermatologist == False and user.is_patient == True %}
+    <div class="blogpost_container">
+        <div class="blogcontainer_partone">
+            {% if user.is_authenticated and user.is_dermatologist == False and user.is_patient == True %}
+                <div class="blogcontainer_partone_subpartone">
+                    <div>
+                        {% if user.userprofile.profile_picture %}
+                            <a href="{% url 'UpdateUserProfilePage' user.userprofile.id %}">
+                                <img src="{{user.userprofile.profile_picture.url}}" width = "80" height="80">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'CreateUserProfilePage' user.id %}">
+                                <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                            </a>
+                        {% endif %}
+                    </div>
+
+                    <div class="sidebar_emailandusername">
+                        <h4 class="sidebar_username">{{user.username}}</h4>
+                        <h4>{{user.email}}</h4>
+                    </div>
+                </div>
+                <div class="blogcontainer_partone_subparttwo">
+                      <div class="blog_sidebar_menu">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit-user-female.png"/>
+                        </div>
+                        <div>
+                          <button><a href="{%url 'UpdateProfilePage'%}">Manage Profile</a></button>
+                        </div>
+                      </div>
+          
+            {% endif %}
+          
+                      {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True%}
+                              <div class="dropdown1">
+                                <div class="filter_icon">
+                                    <img src="https://img.icons8.com/ios-glyphs/23/FFFFFF/filter-and-sort.png"/>
+                                </div>
+                                <div>
+                                    <button onclick="myFunction1()" class="UserDropBtn1">Filter Post</button>
+                                    <div id="userDropdown1" class="user-dropdown-content1">
+                                        <div>
+                                        {% for item in category_menu%}
+            
+                                        <a href="{% url 'FilterBlogPostCategory' item %}">{{item}}</a>
+                                
+                                        {% endfor %}
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+
+                              </div>
+          
+          
+                              <script>
+          
+                                  function myFunction1() {
+                                  document.getElementById("userDropdown1").classList.toggle("show1");
+                                  }
+                      
+                                  window.onclick = function(event) {
+                                  if (!event.target.matches('.UserDropBtn1')) {
+                                      var dropdowns = document.getElementsByClassName(".user-dropdown-content1");
+                                      var i;
+                                      for (i = 0; i < dropdowns.length; i++) {
+                                      var openDropdown = dropdowns[i];
+                                      if (openDropdown.classList.contains('show1')) {
+                                          openDropdown.classList.remove('show1');
+                                      }
+                                      }
+                                  }
+                                  }
+                      
+                              </script>
+          
+          
+                              <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/22/FFFFFF/external-logout-ui-essentials-kmg-design-basic-outline-kmg-design.png"/>
+                                </div>
+                                <div>
+                                  <button><a href="{% url 'DermaBlogPage' %}">Back</a></button>
+                                </div>
+                              </div>
+                              <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/ios/22/FFFFFF/help--v1.png"/>
+                                </div>
+                                <div>
+                                  <button class="help_btn"><a href="#">Help</a></button>
+                                </div>
+                              </div>
+                </div>
+            
+
+            {% endif %}
+        </div>
+
+        <div class="blogcontainer_parttwo">
+            {% if user.is_authenticated %}
+
+                    <div class="blogcontainer_parttwo_container_partone">
+                        <div class="blogcontainer_parttwo_container_partone_subone">
+                            {% if blogpost.author.userprofile.id %}
+                            <a href="{% url 'UserProfileInfoPage' blogpost.author.userprofile.id %}">
+                        
+                            {% if blogpost.author.userprofile.profile_picture %}
+
+                                <img src="{{blogpost.author.userprofile.profile_picture.url}}" width = "50" height="50">
+                        
+                            {% else %}
+                                <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                            {% endif %}
+                            </a>
+                            {% else %}
+                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50" class="dummy_profile">
+                            <a href="#" class="create_profle_link">Create Profile</a>
+                            {% endif %}
+                        </div>
+
+                        <div class="blogcontainer_parttwo_container_partone_subtwo">
+                            <div class="author_and_date">
+                                <div class="author_name">
+                                     <h4>{{blogpost.author}}</h4>
+                                </div>
+
+                                <div class="date_posted">
+                                    <small>{{blogpost.date_posted}}</small>
+                                </div>
+                            </div>
+
+                            <div class="update_and_delete">
+                                {% if user.is_authenticated and user.is_dermatologist == True %}
+                                    {% if user.id == blogpost.author.id %}
+
+                                    <div class="update_link">
+                                        <a href="{% url 'UpdateDermaBlogView' blogpost.pk %}">Update Post</a>
+                                    </div>
+
+                                    <div class="delete_link">
+                                        <a href="{% url 'DeleteDermaBlogView' blogpost.pk %}">Delete Post</a> 
+                                    </div>
+                                    {% endif %}
+                                
+                                {% endif %}
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="BlogPostImage">
+                        {% if blogpost.blog_image %}
+                        <img src="{{blogpost.blog_image.url}}" width="90%" height="300">
+                        {% endif %}
+                    </div>
+
+                    <div class="blogcontainer_parttwo_container_parttwo">
+
+                        <div class="post_title">
+                            <a href="{% url 'DermaBlogDetailsPage' blogpost.pk %}">{{blogpost.title}}</a>
+                         </div>
+                         <div class="readtime">
+                            <div><img src="https://img.icons8.com/material-outlined/16/339AF0/clock--v1.png"/></div>
+                             <div>{{blogpost.get_readtime}} read</div>
+                             &nbsp;&nbsp;
+                             <div class="audio_btn">
+                                <a href="{% url 'AudioDermaBlogTwo' blogpost.pk %}">
+                                    <img width="20" height="20" src="https://img.icons8.com/flat-round/20/339AF0/high-volume--v1.png" alt="high-volume--v1"/>
+                                 </a>
+                             </div>
+                             
+                         </div>
+                         <div class="post_category_link">
+                             <a href="{% url 'FilterBlogPostCategory' blogpost.content_category %}">Blog post category - {{blogpost.content_category}}</a>
+                         </div>
+                    </div>
+
+                    <div class="blogcontainer_parttwo_container_partthree">
+                        <p>{{blogpost.content|safe}}</p>
+                    </div>
+
+                    <div class="like_and_share_container">
+                        <div class="like_dislike_container">
+                            <div>
+                                <form action="{% url 'BlogLikesPage' blogpost.pk %}" method="POST">
+                                    {% csrf_token %}
+        
+                                    {% if blog_liked == True %}
+                                    <button type="submit" name = "post_id" value="{{blogpost.id}}" class="likebtn">
+                                        <img src="https://img.icons8.com/windows/30/null/thumbs-down.png"/>
+                                    </button>
+                                    {% else %}
+                                    <button type="submit" name = "post_id" value="{{blogpost.id}}" class="likebtn">
+                                        <img src="https://img.icons8.com/windows/30/null/facebook-like.png"/>
+                                    
+                                    </button>
+                                    {% endif %}
+        
+                                    
+                                </form>
+                            </div>
+                            <div class="like_dislike_container_border">
+                                <span>Likes: {{like_value}} &nbsp;&nbsp; Dislikes: {{no_dislikes}}</span>
+                            </div>
+                            <div class="no_comments">
+                                <span>comments: {{blogpost.blogcomments.all.count}} &nbsp;&nbsp; visited:{{ num_visits }}</span>
+                            </div>
+                           
+                            
+
+                        </div>
+                        <div class="share_links_container">
+                            <div>
+                                Share via : 
+                            </div>
+                            <div>
+                                {% post_to_facebook object_or_url '<img src="https://img.icons8.com/material-sharp/20/null/facebook-f.png"/>' %}
+                            </div>
+                            <div>
+                                 {% post_to_whatsapp  object_or_url '<img src="https://img.icons8.com/ios-glyphs/20/null/whatsapp.png"/>' %}
+
+                            </div>
+                            <div>
+                                 {% post_to_twitter  object_or_url '' %}
+                                
+                            </div>
+                            
+                            <div>
+                                {% post_to_telegram object_or_url '' %}
+                            </div>
+
+                            <div>
+                                {% post_to_linkedin object_or_url '' %}
+
+                           </div>
+                        </div>
+                     
+                        
+                    </div>
+
+                      <div>
+                        {% if not blogpost.blogcomments.all %}
+                        <div class="add_comment_container">
+                            <div class="add_comment_container_partone">
+                                <div>
+                                    {% if user.userprofile.profile_picture %}
+                                        <img src="{{user.userprofile.profile_picture.url}}" width = "45" height="45" class="commenter_profile_pic">
+                                    {% else %}
+                                         <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="45" height="45" class="commenter_profile_pic">
+                                    {% endif %}
+                                </div>
+                                <div class="add_comment_link_div">
+                                    <a href="{% url 'AddDermaBlogCommentView' blogpost.pk %}">Add Comment....</a>
+                               </div>
+                            </div>
+                            
+                            <div>
+                                <h4>No Comment...</h4>
+                            </div>
+                        </div>
+                        
+                        {% else %}
+                        <div class="add_comment_container">
+                            <div class="add_comment_container_partone">
+                                <div>
+                                    {% if user.userprofile.profile_picture %}
+                                        <img src="{{user.userprofile.profile_picture.url}}" width ="45" height="45">
+                                    {% else %}
+                                         <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="45" height="45">
+                                    {% endif %}
+                                </div>
+                                <div class="add_comment_link_div">
+                                    <a href="{% url 'AddDermaBlogCommentView' blogpost.pk %}">Add Comment....</a>
+                               </div>
+                            </div>
+                            
+                        </div>
+                        <!-- <a href="{% url 'AddDermaBlogCommentView' blogpost.pk %}">Add Comment</a> -->
+                            {% for comments in blogpost.blogcomments.all %}
+                            
+                            <div class="comment_container">
+                                <div class="comment_container_partone">
+                                    <div>
+                                        {% if comments.Commenter_name.userprofile.profile_picture %}
+
+                                            <img src="{{comments.Commenter_name.userprofile.profile_picture.url}}" width = "40" height="40">
+                                    
+                                        {% else %}
+                                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                         <strong><p>{{comments.Commenter_name}}</p></strong>
+                                    </div>
+                                    <div>
+                                        <small><p>{{comments.date_commented}}</p></small>
+                                    </div>
+                                </div>
+                                <div class="comment_content">
+                                    <p>{{comments.comment_content|safe}}</p>
+                                </div>
+                            </div>
+                            
+                            
+                                
+                                {% if not comments.replies.all %}
+                                    <div class="No_reply_container">
+                                        <h4>No Reply</h4>
+                                    </div>
+                                   
+                                    {% else %}
+                                    <div class="reply_message">
+                                        <div>
+                                            <h4>{{comments.replies.all.count}} replies for {{comments.Commenter_name}} comment</h4>
+                                        </div>
+
+                                        <div>
+                                            <p><a href="{% url 'AddReplyToCommentView' comments.pk %}" class="reply">Add Reply</a></p>
+                                        </div>
+                                    </div>
+                                    
+                                        {% for reply in comments.replies.all %}
+                                           <div class="reply_comment_container">
+                                                <div class="reply_comment_container_partone">
+                                                    <div>
+                                                        {% if reply.user.userprofile.profile_picture %}
+
+                                                        <img src="{{reply.user.userprofile.profile_picture.url}}" width = "30" height="30">
+                                                
+                                                        {% else %}
+                                                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div>
+                                                        <strong><p>{{ reply.user.username }}</p></strong>
+                                                    </div>
+                                                    <div>
+                                                       <small> <p>{{ reply.date_commented }}</p></small>
+                                                    </div>
+                                                </div>
+                                                <div class="reply_comment_content">
+                                                    <p>{{ reply.reply|safe}}</p>
+                                                
+                                                     
+                                                </div>
+                                                
+                                            </div>
+                                                
+                                          
+                                            
+                                        {% endfor %}
+                                {%endif%}
+                            
+                            {% endfor %}
+                        
+                            
+
+                        {% endif %}
+
+
+                    </div>
+
+            {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}
+</div>      
+
+{% endblock %}

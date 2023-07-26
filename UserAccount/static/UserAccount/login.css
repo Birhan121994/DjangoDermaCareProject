@@ -1,0 +1,175 @@
+.Login_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    border-top: 1px solid #2CAEE2;
+    margin-top: 2rem;
+    /* margin-top: -5.5rem;
+    margin-bottom: 2rem; */
+    width: fit-content;
+    top: 0;
+    margin-left: 20%;
+    border-bottom: 1px solid #2CAEE2;
+    border-left:1px solid #2CAEE2;
+    border-right: 1px solid #2CAEE2;
+    z-index: 150;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.5);
+
+
+}
+
+.social_media_links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.social_media_links div{
+    display: flex;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: #2CAEE2;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+/* .login_part_one{
+    border-right: 1px solid #2CAEE2;
+} */
+
+.login_part_two{
+    margin-top: 1rem;
+}
+
+.login_header{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #2CAEE2;
+    width: 100%;
+    height: 9rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;   
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;  
+}
+
+.login_header h2{
+    color: #fff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-left: 1rem;
+    font-size: 27px;
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.username, .password{
+    width: 17rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: 7px;
+    border: 1px solid #2CAEE2;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.username:focus, .password:focus{
+    outline: #339AF0;
+}
+
+.signin-btn{
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    text-align: center;
+    background-color: #2CAEE2;
+    border: 1px solid #2CAEE2;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+.or_part{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.or{
+    color: rgba(39, 38, 38, 0.562);
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+}
+
+.or_part hr{
+    width: 5rem;
+    background-color: #2CAEE2;
+}
+
+.forgot_password{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.create_account{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.forgot_password a, .create_account a{
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+.login-footer{
+    width: 100%;
+    height: 2rem;
+    margin-top: 4rem;
+    background-color: #2CAEE2;
+    /* border-top-left-radius: 1rem; */
+}
+
+.message_container{
+    font-family: 'Calibri';
+    font-size:16px; 
+    padding: 1rem 1rem;
+    width: 16rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+    border-left: 4px solid red;
+    border-radius: 7px;
+    color: rgb(112, 37, 37);
+    text-align: justify;
+
+}

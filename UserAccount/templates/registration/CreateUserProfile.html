@@ -1,0 +1,241 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+    {% if user.is_authenticated and user.is_dermatologist == True %}
+    <title>DermaCare Website - Create Dermatologist profile Page</title>
+    {% endif %}
+
+    {% if user.is_authenticated and user.is_patient == True %}
+    <title>DermaCare Website - Create Patient profile Page</title>
+    {% endif %}
+{% endblock %}
+{% block content %}
+<div class="body_container">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+
+    <link rel="stylesheet" href="{% static 'UserAccount/Update_textarea.css'%}">
+
+
+    <div class="blogpost_container">
+        <div class="blogcontainer_partone">
+            {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True %}
+                <div class="blogcontainer_partone_subpartone">
+                    <div>
+                        {% if user.userprofile.profile_picture %}
+                            <img src="{{user.userprofile.profile_picture.url}}" width = "80" height="80">
+                            {% else %}
+                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                        {% endif %}
+                    </div>
+
+                    <div class="sidebar_emailandusername">
+                        <h4 class="sidebar_username">{{user.username}}</h4>
+                        <h4>{{user.email}}</h4>
+                    </div>
+                </div>
+                <div class="blogcontainer_partone_subparttwo">
+        
+                    {% endif %}
+        
+                    {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True%}
+                            <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/22/FFFFFF/external-logout-ui-essentials-kmg-design-basic-outline-kmg-design.png"/>
+                                </div>
+                                <div>
+                                <button><a href="{% url 'DermaBlogPage' %}">Back</a></button>
+                                </div>
+                            </div>
+                            <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/ios/22/FFFFFF/help--v1.png"/>
+                                </div>
+                                <div>
+                                <button class="help_btn"><a href="#">Help</a></button>
+                                </div>
+                            </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="blogcontainer_parttwo">
+            {% if user.is_authenticated and user.is_dermatologist == True %}
+            <h2>Create Dermatologist Profile</h2>
+            {% endif %}
+        
+            {% if user.is_authenticated and user.is_patient == True %}
+            <h2>Create Patient Profile</h2>
+            {% endif %}
+            {% if user.is_authenticated and user.is_dermatologist == True %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="password_field">
+                    <div>
+                {% render_field form.user type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div>
+                {% render_field form.profile_picture type="file" class="profile_image_upload" %}
+                    </div>
+                </div>
+                <div class="password_field">
+                    <div><label>User Biography</label></div>
+                    <div>
+                        {% render_field form.user_biography type="textarea" class="User_bio_textarea" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>First Name</label></div>
+                    <div>
+                        {% render_field form.first_name type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Last Name</label></div>
+                    <div>
+                        {% render_field form.last_name type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Location</label></div>
+                    <div>
+                        {% render_field form.location type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Quotes</label></div>
+                    <div>
+                        {% render_field form.quotes type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Facebook account url</label></div>
+                    <div>
+                        {% render_field form.user_facebook type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Google Email Account</label></div>
+                    <div>
+                        {% render_field form.user_google type="text" class="password_input_fields"%}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Instagram Account URL</label></div>
+                    <div>
+                        {% render_field form.user_instagram type="text" class="password_input_fields"%}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Twitter Account</label></div>
+                    <div>
+                        {% render_field form.user_twitter type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+                
+                <button class="publish_post">Create User Profile</button>
+            </form>
+            {% endif %}
+            {% if user.is_authenticated and user.is_patient == True %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="password_field">
+                    <div>
+                {% render_field form.user type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div>
+                {% render_field form.profile_picture type="file" class="profile_image_upload" %}
+                    </div>
+                </div>
+                <div class="password_field">
+                    <div><label>User Biography</label></div>
+                    <div>
+                        {% render_field form.user_biography type="textarea" class="User_bio_textarea" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>First Name</label></div>
+                    <div>
+                        {% render_field form.first_name type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Last Name</label></div>
+                    <div>
+                        {% render_field form.last_name type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Location</label></div>
+                    <div>
+                        {% render_field form.location type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Quotes</label></div>
+                    <div>
+                        {% render_field form.quotes type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Facebook account url</label></div>
+                    <div>
+                        {% render_field form.user_facebook type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Google Email Account</label></div>
+                    <div>
+                        {% render_field form.user_google type="text" class="password_input_fields"%}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Instagram Account URL</label></div>
+                    <div>
+                        {% render_field form.user_instagram type="text" class="password_input_fields"%}
+                    </div>
+                </div>
+
+                <div class="password_field">
+                    <div><label>Twitter Account</label></div>
+                    <div>
+                        {% render_field form.user_twitter type="text" class="password_input_fields" %}
+                    </div>
+                </div>
+                
+                <button class="publish_post">Create User Profile</button>
+            </form>
+            {% endif %}
+
+            <script>
+                var author_id = "{{user.id}}";
+                document.getElementById("user").value = author_id;
+            </script>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

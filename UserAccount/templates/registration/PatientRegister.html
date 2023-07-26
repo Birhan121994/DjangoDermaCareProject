@@ -1,0 +1,114 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}
+<title>DermaCare Website - Patient Register Page</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="body_container">
+
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/DermaBlogPostForm.css' %}">
+    <link rel = "stylesheet" href="{% static 'UserAccount/patient_signup.css'%}">
+    <div class="Patient_signup_container">
+        <div class="patient_signup_partone">
+            <img src="https://st.depositphotos.com/1770836/1357/i/600/depositphotos_13576597-stock-photo-female-doctor-or-nurse.jpg">
+        </div>
+        <div class="patient_signup_parttwo">
+
+            <div class="login_header">
+                <h2>DERMACARE PATIENT SIGN UP</h2>
+            </div>
+
+            <form method="POST" >
+                {% csrf_token %}
+                <div class="user_form_input">
+                    <div class="User_input_fileds_partone">
+                        <div class="form_input">
+                            {% render_field form.username type="text" class="input_fields" placeholder="Username" %}
+                            <div class="form_errors">
+                                {{form.username.errors}}
+                            </div>
+                            
+                        </div>
+                        <div class="form_input">
+                            {% render_field form.password1 type="password" class="input_fields" placeholder="Password" %}
+                        </div>
+                        
+                        <div class="form_input">
+                            {% render_field form.password2 type="password" class="input_fields" placeholder="Confirm Password" %}
+                            <div class="form_errors">
+                                {{form.password2.errors}}
+                            </div>
+                        </div>
+                        
+                        <div class="form_input">
+                            {% render_field form.first_name  class="input_fields" placeholder="First Name" type="text"%}
+                            <div class="form_errors">
+                                {{ form.first_name.errors}}
+                            </div>
+                            
+                        </div>
+                        <div class="form_input">
+                            {% render_field form.last_name type="text" class="input_fields"  placeholder="Last Name"%}
+                            <div class="form_errors">
+                                {{ form.last_name.errors}}
+                            </div>
+                            
+                        </div> 
+    
+                    </div>
+                    <div class="User_input_fileds_parttwo"> 
+                
+                        <div class="form_input">
+                            {% render_field form.email type="email" class="input_fields"  placeholder="Email Address" %}
+                            <div class="form_errors">
+                                {{ form.email.errors}}
+                            </div>
+                        </div> 
+            
+                        <div class="form_input">
+                            {% render_field form.location type="text" class="input_fields" placeholder="location address"%}
+                            <div class="form_errors">
+                                {{ form.location.errors}}
+                            </div>
+                        </div> 
+            
+                        <div class="form_input">
+                            {% render_field form.phone type="tel" class="input_fields"  placeholder="Phone" %}
+                            <div class="form_errors">
+                                {{ form.phone.errors}}
+                            </div>
+                        </div> 
+    
+                        <div class="form_input">
+                            {% render_field form.gender type="radio" class="gender_input_fields" %}
+                        </div> 
+                        <div class="form_input">
+                            <p class="sign">{% render_field form.agree class="check_btn" type="checkbox"%} By signing up to these page, you agreed up to</p>
+                            <a href="#" class="Terms">Terms and Privacy policy</a>
+                          </div>
+                    </div>  
+                </div>
+                
+                  <div class="bottom_signup_container">
+                    <div>
+                        <button class="signup_btn">Sign up</button>
+                    </div>
+                    
+                    <div class="link_have_account">
+                        <a href="{% url 'login'%}" class="have_account">Already have an account? Sign in</a>
+                    </div>
+                  </div>
+                
+            </form>
+            <div class="bottom_div"></div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

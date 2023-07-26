@@ -1,0 +1,191 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% block title %}
+    <title>DermaCare Website - Contact</title>
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'DermaCareApp/contact.css' %}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/contactResponsive.css' %}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}" >
+<link rel="stylesheet" href="{% static 'DermaCareApp/DermatologistBlog.css'%}">
+<div class="body_container">
+    <div class="SectionOne">
+        <div class="Wrapper">
+        <div class="HeroText">
+            <h2>Your Skin Care Solution </br>
+                <span>Have A Healthy Skin</span></h3>
+            <h4>Check Out Our Services</h4>
+        </div>
+        <div class="HeroButton">
+            <Button class="Check_Out">Check Service</Button>
+            <Button class="More_Info">More Info</Button>
+        </div>
+    </div>
+</div>
+<div class="SectionTwo">
+    <h2>Contacts</h2>
+    <hr>
+    <div class="WrapperTwo">
+        <div class="PostCode">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADLUlEQVR4nO2ZS2hTQRSGjy9UfCCiaLEgSAWpYpOZJI1uunInuvK1ci24UsGFi6KU4kYktZCeuS0Fdwq6cCduFF+tiG4E3VpKtW2ac9Km0tbqlUlji/bB3Hbm5kb84UBILnPyceY/87gA/zVfRzuHt0jF5ySyEoreSKQhqWiqFEhDAqlX/5ZAPqufhahJYrFGIGWl4nGp2DcM/awX97iu0v8f6jL+eqnohkQuBgD4K2hKIN/UY0ElJHF0h1T8bPkA84BeJduLu0OFSHSOHBLIffYgZuOzHjsUiEZvbJcjiFkYncMpRFO3v0FPAYcQvg6h6KVTz5SM7RhCznmm1Q0EFmtW1p0CBtJkoov3WQcprxMhVYPLMIxWIerbBzdLxWMVACnq3NZAStuOYPN7QirKSCw0Hr77ZZMO/Vkgtc38FsT4fNoeCLIKkLw/ls03LDZWUlFMP2MOQh3WQEobQMNKLAXxJ4xpZajHGohUNGyYNGM6plB0x3DMQXsgSJNGST1OmYMU0qZVBmsghtMgSIcpd0ITs3+zBiKQvtoGSWVyWw0rMmANRCr6WKmpJZA/2ANBfmSWlNqsmx35gT0QRa2mxtSt1aj9mjYQRdetgejV1SxpKfqXggm6ICYwf8IaSKxrdKdU9MMYBmlSTx3tA90AdMQ7CkdK08m4EqxX9e+6KYBNCeT3AapiK55DdR+q+HfzuGIfBEcPhAqC9DPemd8LLiSQ34VWDcVPwZUk8oWwQOIen3EGUt4fsXsQGpDorwOXksi33fuDr4FrpVSuNuhxNaA3Cg3dtA3CkD5+ugOhFghLDdncHhd3XAJpJO3xdghTejPnwBsXIWylb/VttHmZLZA+Oe9Ui0li/rw9bxSOQ8XU7K+WyG8tdKonUGklZ+6oplYAMh7LFvZDFCSNT5ALBV2CqKgu46/XlwTLMHjvqfv+GoiShCqkBdJ0gEpMJNXIQYiihKIW8zWDLkNU1dTsrxVILwyq8Vh3PIiyUipXKxTlloAY1K/xoBokVf6kPqouYO5p6fExqCYJxc0LVOQqVJ18f5VEujdnbn6ov4NqVH3paEw9Eum11Zea8A/rF7ZaxClkFmqXAAAAAElFTkSuQmCC">
+            <p>Bahir Dar,</br>
+                Ethiopia, 1234</p>
+        </div>
+        <div class="PhoneNo">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC1klEQVR4nO2ZS2sUQRCAK8YXiF4U4wMTtmuSaBQvinhTRG+KF1FQEMHHTxA85SjejIpJ1QQFbwaCb4OSgwaCEA8awRcKiiAesrtVu4kiKrT0JgbFJG5P2NkO5oM6DsxHV3dXVQPMMkv1QM7vRZYBQ1pElscRF7bCTGIT2XnI0oGs9o8glcb27GqYCTR3Di1Glrt/SYzLyB0InebOoVWG5fmkEuORPwyhkomH65Dk9b8lSpGvp5GVEBotXXa+YekvU6IUhvUGhAaSnvKR+BUZ1kMQEkj6PomIYck2XBhZAaFgSEeSiIwdyd0QCobkTWIRF7EegBBA0u5piZC8ghDAWE9MS4T1C4SAuTi8HEl+JBUxJI8gFJC1N/mKBHTTY6nSTSTyFFrtHAgGa2uQdND7Uox1F4QGsu732xt6E4LEllalr1yRiOUohApybr1h+VamTD4iRQgVZD3jkV5PNl75tAhCJGqzC9wPeuyXXvcNhEjUXmxB1s9lrwzrtW2tdi6ECLIc9zzF2B0YECI40TRl6jgLoY6GDOsDPxlpC3JlMvFwnWF5651mXbYWQsNQvt6QfvCUud5w2S6E0DCduQ1IkvOSYbk34T3TZWsNyxE3ijUs35HlpSuRUpPJxLpldBbssWdIB3+vAAzLjknvKZJbblCYjgzpTsPy1fM0y7vaDFlul7GKWUN6MLX+JYGM9d1j9WlMNDGW7d5p5huk4mYKFZcxHbrZsAxVVIZL6daDl3JrKl/6k36stAySijtsKirTxJLxvTSThQxAOmOl8jvMZCmmBUjriQJJqYJ7pR/SBEmO+fQzWGZkuLAb0qYxLq7z7DTtlKtBcg6qhWuBkeW0x0DDTpJSPUF0oKPTGX2YUORZ1JZdAsFgbU3Ess8n3QzJC9cPQZA4oY78HiS5P1rC68QipH1NVFwGM4G15wtLXVVsSK66B6OxZ8B3huSka7Or/X+z/Lf8BOxugZInI5zCAAAAAElFTkSuQmCC">
+            <p>+25911184385</br>
+               +25909149898</p>
+        </div>
+        <div class="Email">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeElEQVR4nO2ZzWoUQRDHm0B8AjXqI3hYTFckbyFGgogPIPgUuWnUqwjVqxc1Cr6GiOesH4kbg+QsWGVmz47UZEdn1p3pnp3p6ZFMQbEss9tVv65/f0y3Ur311lttu/wmPqMN39RIrzTSPiBPwHDsxZEnSQxDOxJTYtcnUEqtDumGRj70lrjV6as2tLE4wVa8BMgPwwFwzjXytuRUmQMMPwqdPPxbnfuV5RQ+aZ7vSNedIGRwiS6DJ2wKJXboNAHITBE6WbBLbNMBhF6HT5Rt8nppBQFD4+CJGpu8aN8BhKPQiYLdIxeQ+H9w1YOYtDdovD6MVpQnGzyJzmukL14r8jcAffIBsz6MVjTyx3wsDyBXnh2fA8OjdOYAnFxsthL8YdpRe9K2NxB57gNmFuLq48kFl1xqgTQNUwTRCkhTMDkIpM9ZiNZA6sLYIFoFWRTGBaJ1kKoweQjeBTw+22Qutf6cH7DF64z0vFTgz++Qd6UTOgEyyEDIZwbo2xryLanO6tPvlwD5Nhg+mj4bpQtfGQy0BTILId/FAel9STtvRU7T/57AGB7Ng4E2QOZB5F6Xke8mQHIGJmdVht7pId8BjJdn2iiEgTYXxNlFrKqVtQU+QRLpNARRBAPTWc8bSNl2wgcM+AJJt9ai6+yYaMoGmTHjdRufBvAB0eqLFXTI1WkCiUInCTZ5G/5pBXHRZ3inPYeK0E73K0LPT88hNmC83OXzXy3Sz+zXLFWhjdAJwzxH+rWGP645QWQk9qCDkrqnKttWvCQXkF2pBAjEIpehqcmdHSAdBKzCuLKcLBPAptwUJTtTv4tmlLzXI704iek4sHvrrTdVZr8BlpaGyKidHhkAAAAASUVORK5CYII=">
+            <p>dermacarecenter.org@gmail.com</p>
+        </div>
+    </div>
+
+</div>
+<div class="SectionThree">
+    <h2>Working Hours</h2>
+    <hr>
+    <div class="WholeWrapper">
+        <div class="WholeWrapper1">
+            <div class="Circle11">
+                <div class="circle1">
+                    <h2>MON</h2>
+                </div>
+                <div>
+                    <p>8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            <div class="Circle12">
+                <div class="circle1">
+                    <h2>TUE</h2>
+                </div>
+                <div>
+                    <p>8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            <div class="Circle13">
+                <div class="circle1">
+                    <h2>WED</h2>
+                </div>
+                <div>
+                    <p>8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="WholeWrapper2">
+            <div class="Circle21">
+                <div class="circle1">
+                    <h2>THU</h2>
+                </div>
+                <div>
+                    <p>8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            <div class="Circle22">
+                <div class="circle1">
+                    <h2>FRI</h2>
+                </div>
+                <div>
+                    <p>8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            <div class="Circle23">
+                <div class="circle1">
+                    <h2>SAT</h2>
+                </div>
+                <div>
+                    <p>8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        {% if user.is_authenticated and user.is_patient %}
+
+            <div class="SectionFour">
+        <h2>Request a Consultation</h2>
+        <hr>
+        
+        {% if messages %}
+        {% for request in messages %}
+            <div>{{request}}</div>
+            {%endfor%}
+        {% endif %}
+        <center>
+        <form method="POST" action="">
+            {% csrf_token%}
+            <div class="FormWrapper">
+                <div class="Form">
+                <div>
+                    <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+                    {{ form.first_name }}
+                    <div class="Error">
+                        {{ form.first_name.errors}}
+                    </div>
+                </div>
+                <div>
+                    <label for="{{ form.first_name.id_for_label }}">Last Name:</label>
+                    {{ form.last_name }}
+                    <div class="Error">
+                        {{ form.last_name.errors }}
+                    </div>
+                    
+                </div>
+
+                <div>
+                    <label for="{{ form.first_name.id_for_label }}">Phone No</label>
+                      {{ form.phone_no }}
+                      <div class="Error">
+                        {{form.phone_no.errors}}
+                      </div>
+                </div>
+                <div>
+                    <label for="{{ form.first_name.id_for_label }}">Email</label>
+                    {{ form.email }}
+                    <div class="Error">
+                        {{ form.email.errors }}
+                    </div>
+                </div>
+                <div>
+                    <label class="Date" for="{{ form.first_name.id_for_label }}">M/D/Y H:M</label>
+                    {{ form.prefered_date_time }}
+                        <div class="Error">
+                    {{form.prefered_date_time.errors}}
+                        </div>
+                </div>
+                </div>
+                <div class="FormWrapper">
+                    <div class="Form">
+                        <div>
+                        <label for="{{ form.first_name.id_for_label }}">Enter Dermatologist:</label>
+                        {{form.derma_user}}
+                        <div class="Error">
+                            {{form.derma_user.errors}}
+                        </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="Request">
+                    <div>
+                        <label for="{{ form.first_name.id_for_label }}">Request</label>
+                        {{ form.request }}
+                    </div> 
+                </div>
+            </div>
+            <input type="submit" value="Request Appointment" class="Input">
+       </form>
+    </center>
+    
+    </div>
+    {% else %}
+    <br><br>
+    {% endif %}
+    <div class="SectionFive">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12111.776624018812!2d37.37612152901703!3d11.599233947343224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1644ce107991537d%3A0x3e8bedd070a29619!2sBahir%20Dar%20University%20Poly%20Campus!5e1!3m2!1sen!2sus!4v1678983302496!5m2!1sen!2sus"></iframe>
+    </div>
+</div>
+{% endblock %}

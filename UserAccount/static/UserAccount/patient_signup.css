@@ -1,0 +1,175 @@
+.Patient_signup_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    border-top: 1px solid #2CAEE2;
+    margin-top: 2rem;
+    /* margin-top: -5.5rem; */
+    margin-bottom: 2rem;
+    width: fit-content;
+    /* top: 0; */
+    margin-left: 5%;
+    border-bottom: 1px solid #2CAEE2;
+    border-left:1px solid #2CAEE2;
+    border-right: 1px solid #2CAEE2;
+    /* z-index: 150; */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+}
+
+/* .patient_signup_partone{
+    border-bottom: 13rem solid #2CAEE2;
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+} */
+
+/* .login_header{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #2CAEE2;
+    width: 101%;
+    height: 8rem;
+    margin-top: -1rem;
+    margin-bottom: 2.5rem;   
+    border-bottom-right-radius: 2rem; 
+    border-bottom-left-radius: 2rem;
+
+} */
+
+/* .bottom_div{ */
+    /* height: 6rem;
+    width: 101%;
+    background-color: #2caee2d7; */
+    /* border-top-right-radius: 0.5rem; */
+    /* border-top-left-radius: 0.5rem; */
+/* } */
+.check_btn{
+    margin-left:1rem;
+}
+
+.login_header h2{
+    color:#2CAEE2;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-left: 1rem;
+    font-size: 24px;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+}
+
+.patient_signup_parttwo{
+    margin-top: 1rem;
+    background-color: #fff;
+    padding-right: 0.5rem;
+}
+
+.form_input{
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.input_fields{
+    width: 18rem;
+    margin-left: 2rem;
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 0.75rem;
+    border-radius: 7px;
+    border: 1px solid #2CAEE2;
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.input_fields:focus, .gender_input_fields:focus{
+    outline: #339AF0;
+}
+.gender_input_fields{
+    width: 19.5rem;
+    margin-left: 2rem;
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 0.75rem;
+    border-radius: 7px;
+    border: 1px solid #2CAEE2;
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Terms{
+    margin-left: 6rem;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.sign{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    margin-bottom: 0rem;
+    margin-left: 1rem;
+}
+
+.signup_btn{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    margin-left: 35%;
+    background-color: #2CAEE2;
+    border: 1px solid #2CAEE2;
+    border-radius: 4px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    width: 8rem;
+}
+
+.link_have_account{
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+}
+
+.link_have_account a{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.patient_signup_partone{
+    margin-top: 1rem;
+    background-color: #fff;
+}
+
+.user_form_input{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.bottom_signup_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-right: 15rem;
+}
+
+.bottom_signup_container2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15rem;
+}
+
+.form_errors{
+    color: rgb(170, 11, 11);
+    font-family: 'Calibri';
+}

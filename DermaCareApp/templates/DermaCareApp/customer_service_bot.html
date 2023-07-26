@@ -1,0 +1,147 @@
+
+{% extends 'DermaCareApp/base.html' %}
+{% load static%}
+
+{% block title %}
+    <title>DermaCare Website - Customer Service Provider Chatbot</title>
+{% endblock %}
+
+{% block content %}
+    <div class="body_container">
+        <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+        <link rel="stylesheet" href="{% static 'DermaCareApp/DermatologistBlog.css'%}">
+        <link rel="stylesheet" href="{% static 'DermaCareApp/chatbot.css'%}">
+        <div class="chatbot_container">
+            <div class="chatbot_container_partone">
+                <div class="containerone_chat_header">
+                    <div class="part_one">
+                        <div class="profile_image1">
+                            {% if user.userprofile.profile_picture %}
+                            <a href="{% url 'UpdateUserProfilePage' user.userprofile.id %}">
+                                <img src="{{user.userprofile.profile_picture.url}}" width = "50" height="50">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'CreateUserProfilePage' user.id %}">
+                                <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="logo_part_two">
+                            <h3>Mark Peter</h3>
+                        </div>
+                        <div class="logo_part_three">
+                            <h4>DermaChatBot</h4>
+                        </div>
+                    </div>
+                    <div class="part_two">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="Search_part_form_one">
+                                <div class="search_menu_one">
+                                    <input type="text" name="search" id="searchbox_one" placeholder="Search Bots">
+                                </div>
+                                <div class="search_icon_one">
+                                    <button type="submit" class="search_btn_one"><img src="https://img.icons8.com/ios-glyphs/22/B4B0B0/search--v1.png"/></button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="containerone_chat_chatterholder">
+                    <div class="ai-one">
+                        <div class="profile_image">
+                            <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t1.jpg">
+                        </div>
+                        <div class="chatter_name">
+                            <h3>Dr. Jordan P.</h3>
+                        </div>
+                        <div class="time">
+                            <small>Just now</small>
+                        </div>
+                    </div>
+                    <div class="ai-two">
+                        <div class="profile_image">
+                            <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t2.jpg">
+                        </div>
+                        <div class="chatter_name">
+                            <h3>Dr House T. </h3>
+                        </div>
+                        <div class="time">
+                            <small>Yesterday</small>
+                        </div>
+                    </div>
+                    <div class="ai-three">
+                        <div class="profile_image">
+                            <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t3.jpg">
+                        </div>
+                        <div class="chatter_name">
+                            <h3>Dr House T.</h3>
+                        </div>
+                        <div class="time">
+                            <h4>10:25</h4>
+                        </div>
+                    </div>
+                    <div class="ai-four">
+                        <div class="profile_image">
+                            <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t4.jpg">
+                        </div>
+                        <div class="chatter_name">
+                            <h3>Dr House T.</h3>
+                        </div>
+                        <div class="time">
+                            <h4>11:20</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot_container_parttwo">
+                
+                <div class="chatbot_container_subpartone">
+                    <div class="coll1">
+                        <div class="image_pro">
+                            <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t1.jpg">
+                        </div>
+                        <div class="user_name">
+                                <h3 class="chat_name">Dr. Jordan Peterson</h3>
+                                <p class="online_text">Online</p>
+                            </div>
+                    </div>
+                </div>
+                <div class="chatbot_container_subpartthree">
+                    <p>{{user_input}}</p>
+                </div>
+                <div class="chatbot_container_subpartfour">
+                    <p>{{ response }}</p>
+                </div>
+
+                <div class="chatbot_container_subpartfive">
+                    <form method="POST" action="{% url 'get_response' %}">
+                        {% csrf_token %}
+                        <input type="text" name="user_input" class="text_input"/>
+                        <button type="submit" class="chat_Submit_btn">Send</button>
+                    </form>
+                </div>
+               
+            </div>
+            <div class="chatbot_container_subparttwo">
+                <h3>Chat With DermaCare</h3>
+                <p>Hello there!If you have any questions , I am here to help.</p>
+            </div>
+            </div>
+        </div>
+        <!-- <h4>Customer Service Chatbot</h4> -->
+            <!-- <p>{{result}}</p>
+            <br> -->
+
+            <!-- {% if user_input %}
+            <p>{{user_input}}</p>
+            {% endif %}
+            <br>
+            {% if response %}
+            <p>{{ response }}</p>
+            {% endif %}
+         -->
+        
+    </div>
+{% endblock %}

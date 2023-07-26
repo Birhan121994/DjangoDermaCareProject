@@ -1,0 +1,512 @@
+.blogpost_container{
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.blogcontainer_partone{
+    display: flex;
+    flex-direction:column;
+    margin-top: 2rem;
+    position: fixed;
+    left: 7%;  
+}
+.blogcontainer_partone_subpartone{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #339AF0;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    border-top-right-radius: 5px;
+    border-top-left-radius:5px;
+}
+.blogcontainer_partone_subpartone img{
+    border-radius: 5rem;
+    border: 2px solid #fff;
+}
+.blogcontainer_partone_subparttwo{
+    background-color: #339AF0;
+}
+
+.blog_sidebar_menu{
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin-bottom: 0.5rem;
+margin-left: 1.5rem;
+margin-right: 1.5rem;
+}
+.blog_sidebar_menu div{
+    margin-right: 0.5rem;
+}
+
+.blog_sidebar_menu button{
+    min-width: 120px;
+    background-color: #fff;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: none;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.blog_sidebar_menu button a{
+    text-decoration: none;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.UserDropBtn1 {
+    color: black;
+    background-color: #fff;
+    min-width: 120px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    /* margin-top: 1rem; */
+    margin-right: 1.5rem;
+    margin-left: 0.5rem;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+
+    }
+
+    .UserDropBtn1:hover, .UserDropBtn1:focus {
+    cursor: pointer;
+    }
+
+    .user-dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width:max-content;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+    padding-right: 0.5rem;
+    z-index: 1;
+    margin-left: 3rem;
+    border-top: 2px solid #339AF0;
+    border-bottom: 2px solid #339AF0;
+    }
+
+    .user-dropdown-content1 a {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    
+    }
+    .user-dropdown-content1 a:hover{
+        color: #339AF0;
+    }
+    .user-dropdown-content1 div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .show1 {
+        display:block;
+    }
+  
+.help_btn{
+    margin-bottom: 1rem;
+}
+
+.sidebar_emailandusername{
+    margin-top: -1rem;
+    margin-bottom: -0.5rem;
+    text-align: center;
+}
+.sidebar_emailandusername h4{
+    color: #000000;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+    
+}
+.sidebar_username{
+    margin-bottom: -0.5rem;
+}
+
+.dropdown1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.filter_icon{
+    margin-left: 1rem;
+}
+
+.blogcontainer_parttwo{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(114, 107, 107, 0.301);
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 60%;
+    margin-left: 15%;
+    margin-top: 2rem;
+
+}
+.blogcontainer_parttwo_container_partone{
+    display: flex;
+    flex-direction: row;
+}
+
+.blogcontainer_parttwo_container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(114, 107, 107, 0.301);
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
+    margin-left: 2rem;
+}
+
+
+
+
+
+
+ .blogcontainer_parttwo_container_partone_subone{
+    display: flex;
+    flex-direction: column;
+    margin:1rem;
+}
+.blogcontainer_parttwo_container_partone_subone img{
+    border-radius: 5rem;
+    border: 1px solid #339AF0;
+}
+
+
+
+.blogcontainer_parttwo_container_partone_subtwo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #339AF0;
+}
+.author_and_date{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.update_and_delete{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.author_name{
+    margin-right: 1rem;
+}
+.author_name h4{
+    color: #339AF0;
+    font-family:'Calibri';
+    font-size: 17px;
+    font-weight: 550;
+}
+.date_posted{
+    margin-right: 2rem;
+}
+.date_posted small{
+    color: #181717a9;
+    font-family: 'Calibri';
+    font-size: 15px;
+}
+
+.update_and_delete{
+    display: flex;
+    flex-direction: row;
+    margin-top: -1rem;
+    margin-left: -1rem;
+}
+.update_and_delete div{
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+.create_profle_link{
+    background-color: #339AF0;
+    padding: 0.25rem 0.75rem;
+    text-align:center;
+    text-decoration: none;
+    font-family: 'Calibri';
+    color: #fff;
+    font-size: 15px;
+    margin-top: 0.5rem;
+    margin-left: -0.5rem;
+}
+.update_link,.delete_link{
+    background-color: #339AF0;
+    padding: 0.25rem 0.75rem;
+    margin-top: 1rem;
+}
+.update_link a,.delete_link a{
+    text-align:center;
+    text-decoration: none;
+    font-family: 'Calibri';
+    color: #fff;
+    font-size: 15px;
+}
+
+.blogcontainer_parttwo_container_parttwo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.post_title a{
+    text-decoration: none;
+    font-family: 'Calibri';
+    font-size: 25px;
+    color: rgb(20, 20, 20);
+    font-weight: 600;
+}
+
+.post_category_link a{
+    text-decoration: none;
+    font-family: 'Calibri';
+    font-size: 18px;
+    color: #339AF0;
+}
+
+.BlogPostImage{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+
+.blogcontainer_parttwo_container_partthree p{
+    padding-left: 1rem;
+    text-align: justify;
+    line-height: 1.5rem;
+    font-family: 'calibri';
+    font-size: 17px;
+    color: rgba(54, 53, 53, 0.87);
+}
+
+
+.like_and_share_container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem;
+}
+.share_links_container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(209, 205, 205, 0.212);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20rem;
+    font-family: 'Calibri';
+}
+.share_links_container div{
+    margin-right: 0.2rem;
+}
+
+.like_dislike_container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(209, 205, 205, 0.212);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20rem;
+    font-family: 'Calibri';
+}
+.likebtn{
+    border: none;
+    background-color: rgba(209, 205, 205, 0);
+    margin-right: 0.5rem;
+
+}
+
+.add_comment_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.add_comment_container_partone{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.add_comment_link_div{
+    margin-left: 1rem;
+}
+
+.add_comment_link_div a{
+    text-decoration: none;
+    font-family: 'Calibri';
+    font-size: 18px;
+}
+
+.no_comments{
+    margin-left: 1rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.24);
+    height: 1.2rem;
+    padding: 0.5rem;
+}
+
+.like_dislike_container_border{
+    border-left: 1px solid rgba(0, 0, 0, 0.24);
+    height: 1.2rem;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.comment_container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.reply_message{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    margin-left: 6rem;
+    font-family: 'Calibri';
+    color: steelblue;
+    font-size: 18px;
+}
+.reply_message a{
+    text-decoration: none;
+    font-family: 'Calibri';
+}
+.reply{
+    margin-left: 1rem;
+    font-size: 16px;
+}
+.comment_container_partone{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Calibri';
+}
+.comment_container_partone img{
+    border-radius: 5rem;
+    border: 1px solid #339AF0;
+}
+.comment_container div, .reply_comment_container_partone div{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.comment_content p,.reply_comment_content p{
+    margin-left: 4rem;
+    text-align: justify;
+    font-family: 'Calibri';
+    margin-top: 0rem;
+}
+
+.reply_comment_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5rem;
+
+
+}
+.reply_comment_container_partone{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Calibri';
+}
+
+.add_comment_container_partone img{
+    border-radius: 5rem;
+    border: 1px solid #339AF0;
+}
+.reply_comment_container_partone img{
+    border-radius: 5rem;
+    border: 1px solid #339AF0;
+}
+.No_reply_container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5rem;
+    margin-top: -1rem;
+}
+.No_reply_container a{
+    text-decoration: none;
+    font-family: 'Calibri';
+}
+
+
+.readtime{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #4b4d4e;
+    font-family: 'Calibri';
+}
+.readtime img{
+    margin-top: 0.25rem;
+    margin-right: 0.25rem;
+}
+/*
+
+.blogcontainer_parttwo_container_partfour{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.blogcontainer_parttwo_container_partfour button{
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-left: 1rem;
+    border: 1px solid #339AF0;
+    margin-bottom: 0.5rem;
+}
+
+.blogcontainer_parttwo_container_partfour button a{
+    text-decoration: none;
+    color: #339AF0;
+    font-family: 'Calibri';
+    font-size: 17px;
+}
+
+.dummy_profile{
+    margin-right: 1rem;
+} */

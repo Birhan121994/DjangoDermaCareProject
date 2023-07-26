@@ -1,0 +1,55 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>DermaCare Website - Search content </title>
+{% endblock %}
+
+{% block content %}
+    <div class="body_container">
+        <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+        <link rel="stylesheet" href="{% static 'DermaCareApp/DermatologistBlog.css'%}">
+        {% if user.is_authenticated %}
+        <div class="Searched_contents_container">
+            {% if searched_value %}
+            <h2>You have searched for : {{searched_value}} </h2>
+            <br>
+                {% if blog_search_value %}
+                <p>Search results found :{{count_value}} </p>
+                    {% for searched_blogs in blog_search_value %}
+                        <div>
+                            <div>Published by : {{searched_blogs.author}} - {{searched_blogs.date_posted}}</div>
+                            <div><h3>{{searched_blogs}}</h3>- {{searched_blogs.content_category}}</div>
+                            <div>{{searched_blogs.sub_content|safe}}</div>
+                        <a href="{% url 'DermaBlogDetailsPage' searched_blogs.id %}">View Details</a>
+                        </div>
+                        
+                        <br>
+                    
+                    {% endfor %}
+                {% else %}
+                <h2>No blog result found with the title called {{searched_value}} </h2>
+                {% endif %}
+
+                {% if blog_category_value %}
+                <p>Search results found :{{count_value_two}} </p>
+                        {% for category_stat in blog_category_value %}
+                        <div>
+                            <div>Published by : {{category_stat.author}} - {{category_stat.date_posted}}</div>
+                            <div><h3>{{category_stat}}</h3>- {{category_stat.content_category}}</div>
+                            <div>{{category_stat.sub_content|safe}}</div>
+                        <a href="{% url 'DermaBlogDetailsPage' category_stat.id %}">View Details</a>
+                        </div>
+                        
+                        <br>
+                        {% endfor %}
+                {% else %}
+                <h2>No blog result found with the category called {{searched_value}} </h2>
+                {% endif %}
+            {% else %}
+            <h2>You did not search for any thing............</h2>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,168 @@
+{
+    "intents": [
+      {"tag": "greeting",
+       "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day", "Hey", "Ekse", "Hi"],
+       "responses": ["Hi stranger", "Yebo yes, how can I help", "Ey watsupp", "Ekse Hoezit", "Hola", "Hey dude", "You again"]
+      },
+      {"tag": "goodbye",
+       "patterns": ["Bye", "See you later", "Goodbye", "Ok bye", "Bye Bye"],
+       "responses": ["See you!", "Have a nice day", "Sure Bye", "Later dude", "Sayoonara", "Peace out", "Sure dude", "Ciao"]
+      },
+      {"tag": "thanks",
+       "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+       "responses": ["Happy to help!", "Any time!", "My pleasure", "You are welcome", "Sure dude"]
+      },
+      {"tag": "noanswer",
+       "patterns": [],
+       "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand", "I am still here dude"]
+       },
+       {"tag": "name",
+        "patterns": ["What is your name", "Whats your name", "Tell me your name", "Who are you", "Ungubani", "Tell me about yourself", "You are"],
+        "responses": ["I am DermaCare", "My name is DermaCare", "You can call me DC for short", "I am DermaCare, my friends call me DC", "DermaCare is my name"]
+        },
+        {"tag": "services",
+         "patterns": ["What do you do", "How can you help", "What do you know", "What is your purpose", "How can you help"],
+         "responses": [
+                        "The service that I am programmed to give or provide includes: giving a breif medical information about the medical condition which relates with dermatology, provide a guidance how to create and manage a new account, and make a general conversation with you.",
+                        "I can tell you about Dermatology and Skin Care Related information.", 
+                        "I have been trained to give a medical information on 10 skin disease classes. The classes are eczema, melanoma, atopic dermatits, benginin keratosis, basel cell carcinoma, sebohrreotic keratosis, melanocytic nevy, psoriasis, warts molluscum."             
+                      ]
+
+        },
+
+       {"tag": "Melanoma",
+        "patterns": ["Melanoma","What is melanoma", "What can you tell me about melanoma", "melanocytes", "Tell me about Melanoma", "What about melanoma", "What do you know about melanoma", "Tell me more about melanoma", "What can you tell me about melanoma", "Tell me about melanoma", "What about melanoma", "What do you know about melanoma", "Tell me more about melanoma"],
+        "responses": [
+            "Melanoma is a type of skin cancer that develops in the cells that produce pigment in the skin, known as melanocytes.",
+            "Melanoma is considered to be a serious and potentially deadly form of skin cancer because it can spread quickly to other parts of the body if it is not detected and treated early.",
+            "Melanoma is a type of cancer that arises from the pigment-producing cells, or melanocytes, in the skin."
+        ]
+        },
+
+        {"tag": "Eczema",
+        "patterns": ["Eczema","What is eczema", "What can you tell me about Eczema", "Eczema", "Tell me about Eczema", "What about Eczema", "What do you know about Eczema", "Tell me more about Eczema", "What can you tell me about Eczema", "Tell me about Eczema", "What about Eczema", "What do you know about Eczema", "Tell me more about Eczema"],
+        "responses": [
+            "Eczema, also known as atopic dermatitis, is a chronic skin condition that causes inflammation, itching, and redness of the skin.",
+            "Eczema is a chronic condition, meaning that it can last for months or even years."
+        ]
+        },
+
+        {"tag": "Psoriasis",
+        "patterns": ["Psoriasis","What is psoriasis", "What can you tell me about Psoriasis", "Psoriasis", "Tell me about Psoriasis", "What about Psoriasis", "What do you know about Psoriasis", "Tell me more about Psoriasis", "What can you tell me about Psoriasis", "Tell me about Psoriasis", "What about Psoriasis", "What do you know about Psoriasis", "Tell me more about Psoriasis"],
+        "responses": [
+            "Psoriasis is a chronic autoimmune disease that causes the rapid buildup of skin cells. This results in thick, scaly patches of skin that can be red, itchy, and painful. Psoriasis can occur at any age, but it is most commonly diagnosed in adults.",
+            "Psoriasis is a chronic, inflammatory skin condition that causes the skin to produce new skin cells at a faster rate than normal. This leads to the buildup of thick, scaly patches of skin that can be red, itchy, and painful."
+        ]
+        },
+
+        {"tag": "Cause of Melanoma",
+        "patterns": ["Cause of Melanoma","what are the major cause of melanoma", "What can you tell me about the cause of melanoma", "cause of melanocytes", "Tell me about the cause of Melanoma", "What about the cause melanoma", "What do you know about the cause melanoma", "Tell me more about the cause melanoma", "What can you tell me about the cause of melanoma", "Tell me about the cause of melanoma", "What about the cause of melanoma", "What do you know about the cause of melanoma", "Tell me more about the cause of melanoma"],
+        "responses": [
+            "The exact cause of melanoma is not fully understood, but it is believed to be a combination of genetic and environmental factors. The primary environmental risk factor for melanoma is exposure to ultraviolet (UV) radiation from the sun or tanning beds.",
+            "Other risk factors for melanoma include:Fair skin, light-colored hair, and light-colored eyes, A history of sunburns, especially in childhood or adolescence,A family history of melanoma or other skin cancers,A weakened immune system, Certain genetic mutations, such as mutations in the CDKN2A or CDK4 genes"
+        ]
+        },
+
+
+        {"tag": "Cause of Eczema",
+        "patterns": ["Cause of Eczema","what are the major cause of Eczema", "What can you tell me about the cause of Eczema", "cause of Eczema", "Tell me about the cause of Eczema", "What about the cause Eczema", "What do you know about the cause Eczema", "Tell me more about the cause Eczema", "What can you tell me about the cause of Eczema", "Tell me about the cause of Eczema", "What about the cause of Eczema", "What do you know about the cause of Eczema", "Tell me more about the cause of Eczema"],
+        "responses": [
+            "Some of the factors that may contribute to the development of eczema include:genetics, enviromental triggers, Immune system dysfunction , Skin barrier dysfunction, and stress."
+        ]
+        },
+
+        {"tag": "Cause of Psoriasis",
+        "patterns": ["Cause of Psoriasis","what are the major cause of Psoriasis", "What can you tell me about the cause of Psoriasis", "cause of Psoriasis", "Tell me about the cause of Psoriasis", "What about the cause Psoriasis", "What do you know about the cause Psoriasis", "Tell me more about the cause Psoriasis", "What can you tell me about the cause of Psoriasis", "Tell me about the cause of Psoriasis", "What about the cause of Psoriasis", "What do you know about the cause of Psoriasis", "Tell me more about the cause of Psoriasis"],
+        "responses": [
+            "Common psoriasis triggers include:stress, Skin injury, such as a cut or bad sunburn, Infection, such as strep throat,Some medications, including lithium, prednisone, and hydroxychloroquine, Weather, especially cold, dry weather,Tobacco,Alcohol (heavy drinking)"
+        ]
+        },
+
+        {"tag": "Sympthom of Melanoma",
+        "patterns": ["Sympthoms of Melanoma","What are the major sympthoms of melanoma", "What can you tell me about the sympthoms of melanoma", "Sympthoms of melanocytes", "Tell me about the sympthom of Melanoma", "What about the sympthom melanoma", "What do you know about the sympthoms melanoma", "Tell me more about the sympthom of melanoma", "What can you tell me about the sympthoms of melanoma", "Tell me about the sympthoms of melanoma", "What about the sympthoms of melanoma", "What do you know about the sympthoms of melanoma", "Tell me more about the sympthoms of melanoma"],
+        "responses": [
+            "Some of the symptoms of melanoma may include:The appearance of a new mole or growth on the skin,Changes in the size, shape, color, or texture of an existing mole or growth,Irregular or asymmetrical shape of a mole or growth,Irregular or jagged border of a mole or growth",
+            "Some of the symptoms of melanoma may include: Uneven color or multiple colors within a mole or growth, A mole or growth that is larger than a pencil eraser (about 6 millimeters in diameter), A mole or growth that is itchy, painful, or bleeding, A mole or growth that has an unusual texture or is raised from the surrounding skin, Darkening or discoloration of the skin around a mole or growth"
+        ]
+        },
+
+
+        {"tag": "Sympthom of Eczema",
+        "patterns": ["Sympthoms of Eczema","What are the major sympthoms of Eczema", "What can you tell me about the sympthoms of Eczema", "Sympthoms of Eczema", "Tell me about the sympthom of Eczema", "What about the sympthom Eczema", "What do you know about the sympthoms Eczema", "Tell me more about the sympthom of Eczema", "What can you tell me about the sympthoms of Eczema", "Tell me about the sympthoms of Eczema", "What about the sympthoms of Eczema", "What do you know about the sympthoms of Eczema", "Tell me more about the sympthoms of Eczema"],
+        "responses": [
+            "Symptoms of eczema include: Dry skin, Itchy skin, Skin rash, Bumps on your skin, Thick, leathery patches of skin, Flaky, scaly or crusty skin,Swelling."
+        ]
+        },
+
+        {"tag": "Sympthom of Psoriasis",
+        "patterns": ["Sympthoms of Psoriasis","What are the major sympthoms of Psoriasis", "What can you tell me about the sympthoms of Psoriasis", "Sympthoms of Psoriasis", "Tell me about the sympthom of Psoriasis", "What about the sympthom Psoriasis", "What do you know about the sympthoms Psoriasis", "Tell me more about the sympthom of Psoriasis", "What can you tell me about the sympthoms of Psoriasis", "Tell me about the sympthoms of Psoriasis", "What about the sympthoms of Psoriasis", "What do you know about the sympthoms of Psoriasis", "Tell me more about the sympthoms of Psoriasis"],
+        "responses": [
+            "Symptoms of Psoriasis are Patches of thick, red skin with silvery-white scales that itch or burn, typically on the elbows, knees, scalp, trunk, palms, and soles of the feet, Dry, cracked skin that itches or bleeds, Thick, ridged, pitted nails."
+        ]
+        },
+
+
+        {"tag": "Treatment of Melanoma",
+        "patterns": ["treatment of Melanoma","How to treat melanoma", "What can you tell me about the treatments of melanoma", "treatments of melanocytes", "Tell me about the treatments of Melanoma", "What about the treatments sympthom melanoma", "What do you know about the treatments melanoma", "Tell me more about the treatments of melanoma", "What can you tell me about the treatments of melanoma", "Tell me about the treatments of melanoma", "What about the sympthoms of melanoma", "What do you know about the treatments melanoma", "Tell me more about the the treatments melanoma"],
+        "responses": [
+            " Treatment options for melanoma may include: Surgery, Immunotherapy, Radiation therapy, Targeted therapy and so many others."
+        ]
+        },
+
+
+        {"tag": "Treatment of Eczema",
+        "patterns": ["treatment of Eczema","How to treat Eczema", "What can you tell me about the treatments of Eczema", "treatments of Eczema", "Tell me about the treatments of Eczema", "What about the treatments sympthom Eczema", "What do you know about the treatments Eczema", "Tell me more about the treatments of Eczema", "What can you tell me about the treatments of Eczema", "Tell me about the treatments of Eczema", "What about the sympthoms of Eczema", "What do you know about the treatments Eczema", "Tell me more about the the treatments Eczema"],
+        "responses": [
+            "Eczema (Atopic Dermatitis) Treatment: Avoid scratching the rash or skin, Relieve the itch by using a moisturizer or topical steroids, Keep your fingernails cut short, Lubricate or moisturize the skin two to three times a day using ointments such as petroleum jelly"
+        ]
+        },
+
+        {"tag": "Treatment of Psoriasis",
+        "patterns": ["treatment of Psoriasis","How to treat Psoriasis", "What can you tell me about the treatments of Psoriasis", "treatments of Psoriasis", "Tell me about the treatments of Psoriasis", "What about the treatments sympthom Psoriasis", "What do you know about the treatments Psoriasis", "Tell me more about the treatments of Psoriasis", "What can you tell me about the treatments of Psoriasis", "Tell me about the treatments of Psoriasis", "What about the sympthoms of Psoriasis", "What do you know about the treatments Psoriasis", "Tell me more about the the treatments Psoriasis"],
+        "responses": [
+            "Treatment of psoriasis aims to remove scales and stop skin cells from growing so quickly. Topical ointments, light therapy, and medications can offer relief.",
+            "Steroid creams or ointments (topical corticosteroids) are commonly used to treat mild to moderate psoriasis in most areas of the body. The treatment works by reducing inflammation. This slows the production of skin cells and reduces itching. Topical corticosteroids range in strength from mild to very strong."
+        ]
+        },
+
+        {"tag": "account",
+         "patterns": ["How to create an account", "How can i create an account", "create an account", "What are the steps to create an account", "can you help me to create an account", "Tell me something about how to create an account"],
+         "responses": [
+         "In the DermaCare website, you can create an account in two different ways. The first way is to create an account as a user only. It refers to the part where a user can view blogs in a website, get AI-powered medical diagnosis, book medical appointments with dermatologists and more. All you have to do to create a user account is to log in and click on the user icon in the top right corner of the website. A user registration form will be requested, if all the information you provided is correct, an account will be created for you."
+         ]
+        },
+
+        {"tag": "ሰላም",
+        "patterns": ["ሰላም","ሰላም ነው?", "ደህና ነህ?", "ደህና ነሽ?", "ሰላም ነሽ?", "ሰላም ነህ", "ጤና ይስጥልኝ","እንዴት ነህ","እንዴት ነሽ"],
+        "responses": [
+          "ሰላም ጤና ይስጥልኝ, እባክህ እንዴት ልረዳህ እችላለሁ?",
+          "ደህና ነኝ እግዚአብሄር ይመስገን, ምን ልርዳዎ?",
+          "ሰላም ነኝ እግዚአብሄር ይመስገን,ምን ልርዳዎ?"
+        ]
+        },
+
+        {"tag": "አካውንት",
+        "patterns": ["አካውንት እንዴት መክፈት እችላለሁ?","አዲስ አካውንት እንዴት መክፈት እችላለሁ?","አካውንት እንዴት መክፈት እችላለሁ?","አካውንት እንዴት መክፈት እንደሚቻል ንገረኝ", "አካውንት ለመክፈት ምን ማድረግ አለብኝ?"],
+        "responses": [
+                  "በ DermaCare ድህረ ገጽ ውስጥ፣ በሁለት የተለያዩ መንገዶች አካውንት መክፈት ይችላሉ። የመጀመሪያው መንገድ እንደ ተጠቃሚ ብቻ መለያ መፍጠር ነው። አንድ ተጠቃሚ በድረ-ገጽ ውስጥ ያሉ ብሎጎችን ለማየት፣በኤአይአይ የተጎላበተ የህክምና ምርመራ ለማግኘት፣ከዳርማቶሎጂስቶች እና ከሌሎችም ጋር የህክምና ቀጠሮ የሚያገኙበትን አካል የሚያመለክት ነው። የተጠቃሚ መለያ ለመፍጠር ማድረግ ያለብዎት በድረ-ገጹ የላይኛው ቀኝ ጥግ ላይ የሚገኘውን የተጠቃሚ አዶ ገብተው ጠቅ ያድርጉት። እሱን ሲጫኑ የመግቢያ ሊንኩን የያዘ ሜኑ ንጥል ያሳያል ፣ እሱን ጠቅ ያድርጉ ፣ ወደ መለያ መግቢያ ገጽ ይወስድዎታል ፣ በዚያ ገጽ ውስጥ ይመዝገቡ የሚል አገናኝ አለ ፣ ከዚያ ጠቅ ያድርጉ እና ይጫናል ። ወደ ሚና መምረጫ ገጽ ውሰድ ፣ ከተቆልቋዩ ውስጥ የተጠቃሚ ሚና ምርጫን ምረጥ እና ከዚያ በኋላ የተጠቃሚ ምዝገባ ፎርም ይጠየቃል ፣ ያቀረብከው መረጃ ሁሉ ትክክል ከሆነ መለያ ይፈጥርልሃል። የቆዳ ህክምና ባለሙያን ለመመዝገብ ከፈለጉ ፣ ከላይ ካለው የተለየ ብቸኛው ነገር በ ሚና ምርጫ ገጽ ላይ የቆዳ ህክምና ባለሙያውን ይምረጡ ፣ ከዚያ የቆዳ ህክምና ባለሙያዎች መመዝገቢያ ገጽ ይጠየቃል ፣ ከዚያ ሁሉንም አስፈላጊ መረጃዎች ማከል አለብዎት ። ከላይ ያሉትን ሁሉንም ደረጃዎች በጥንቃቄ ከተከተሉ የሁለቱም መለያ ሊኖርዎት ይገባል::"
+        ]
+        },
+
+        {"tag": "ፕሮፋይል",
+        "patterns": ["ለፈጠርኩት አካውንት እንዴት ፕሮፋይል ፒክቸር ይኖረኛል?","ፕሮፋይል ፒክቸርን ወደ መለያዬ እንዴት መጨመር እንደሚቻል እችላለሁ?","አካውንት እንዴት መክፈት እችላለሁ?","አካውንት እንዴት መክፈት እንደሚቻል ንገረኝ", "አካውንት ለመክፈት ምን ማድረግ አለብኝ?"],
+        "responses": [
+        "እንደ አዲስ ተጠቃሚ ሲመዘገቡ ስርዓቱ ነባሪ የመገለጫ ስዕል ይሰጥዎታል ፣ ግን በእራስዎ ምስል መለወጥ ከፈለጉ ፣ በጎን አሞሌው ላይ ባለው የብሎግ ጣቢያ ላይ ነባሪ አዶውን ጠቅ በማድረግ በቀላሉ የprofile pictureን ማዘመን ይችላሉ።"   
+        ]
+        },
+
+        {"tag": "ስም",
+        "patterns": ["ስምሽ ማን ነው","ስለ ስምሽ ልትነግሪኝ ትችያለሽ?","ስምሽን ንገሪኝ?"],
+        "responses": [
+            "ስሜ DermaCare Chatbot እባላለሁ።",
+            "DermaCare Chatbot በሚባል ስም ነው የምታወቀው::",
+            "DermaCare Chatbot ልትለኝ ትችላለሕ::"
+        ]
+        }
+    ]
+  }
+  

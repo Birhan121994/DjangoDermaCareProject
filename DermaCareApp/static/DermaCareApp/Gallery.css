@@ -1,0 +1,253 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Image img{
+    height: 270px;
+    width: 270px;
+}
+.SideBar{
+    position: fixed;
+    width: 22%;
+    margin-top: 2.7rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-top: 1px solid #239AF0;
+    border-bottom: 1px solid #239AF0;
+    border-right: 1px solid #239AF0;
+    padding-left: 1rem;
+    overflow: auto;
+}
+
+.SideBar .Filter{
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 0px;
+    text-align: center;
+    background-color: #239AF0;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    font-size: 18px;
+
+}
+.SideBar .Filter img{
+    margin-left: .4rem;
+}
+.DownloadImage{
+    margin-top: 0.5rem;
+    border: none;
+
+}
+.SideBar button{
+    margin-left: 1rem;
+    text-align: center;
+    width: 13rem;
+    cursor: pointer;
+    color: white;
+    background-color: #239AF0;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    font-size: 18px;
+}
+
+
+.SideBar .Download{
+    padding: 0.5rem;
+    border: 0px;
+    border: none;
+    text-align: center;
+    background-color: #239AF0;
+}
+.SideBar .Download:hover{
+    background-color: #2b3b47d8;
+}
+.SideBar .Back{
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: 0px;
+    text-align: center;
+    background-color: #239AF0;
+    margin-bottom: 1rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+.SideBar .Back:hover{
+    color: white;
+    background-color: #2b3b47d8;
+}
+.SideBar .Back a{
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+.DiseaseCategory{
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    display: none;
+    margin-left: 1.4rem;
+    margin-right: .5rem;
+}
+
+.DiseaseCategory a{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    height: 1.7rem;
+    width: 8rem;
+    margin: 0.08rem;
+    margin-left: 2.2rem;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    background-color: #2b3b47d8 ;
+}
+.DiseaseCategory a:hover{
+    color: white;
+    background-color: #1115178e ;
+}
+
+.DiseaseCategory1{
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    display: none;
+    margin-left: 1.4rem;
+    margin-right: .5rem;
+}
+
+.DiseaseCategory1 a{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    height: 1.7rem;
+    width: 8rem;
+    margin: 0.08rem;
+    margin-left: 2.2rem;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    background-color: #2b3b47d8;
+}
+.DiseaseCategory1 a:hover{
+    color: white;
+    background-color: #1115178e;
+}
+.DiseaseCategory1 button{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    height: 1.4rem;
+    width: 8rem;
+    margin: 0.08rem;
+    margin-left: 2.2rem;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    background-color: #2b3b47d8;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.Button{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    height: 1.7rem;
+    width: 8rem;
+    margin-top: 3rem;
+    margin: 0.08rem;
+    color: rgba(9, 9, 9, 0.945);
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    border: none; 
+}
+.Form{
+    margin-top: 0.5rem;
+}
+.Button:hover{
+    color: white;
+    background-color: #2b3b47d8;
+}
+
+.DiseaseCategory1 a:hover{
+    color: white;
+    background-color: #2b3b47d8;
+}
+.DiseaseCategory1 button:hover{
+    color: white;
+    border: none;
+    background-color: #2b3b47d8;
+}
+.Container{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.Whole-Container{
+    display: flex;
+    flex-direction: column;
+}
+
+.Whole-Container .Image-Container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 75%;
+    margin-left: 20%;
+    margin-top: 2rem;
+    justify-content: right;
+    padding: 10px;
+    position: relative;
+}
+.Container .Image-Container .Image{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #2b3b47d8;
+}
+.Container .Image-Container .Image img{
+    object-fit: cover;
+    transition: 1s linear;
+}
+.Container .Image-Container .Image:hover img{
+    transform: scale(1.2);
+}
+.Container .Popup-Image{
+    position:fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display:none;
+}
+.Container .Popup-Image span{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+    z-index: 100;
+}
+.Container .Popup-Image img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+}
+@media(max-width:768px){
+    .Container .Popup-Image img{
+        width: 95%;
+    }
+}

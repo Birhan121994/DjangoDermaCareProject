@@ -1,0 +1,529 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% block title %}
+    <title>DermaCare Website - Contact</title>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'DermaCareApp/manage.css' %}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+<script src="{% static 'DermaCareApp/main.js' %}" defer></script>
+<style>
+.SecOneTitle{
+     text-align: center;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-size: 20px;
+     height: 4rem;
+}
+.SecOneTitle hr{
+    width: 6rem;
+    color:  #239AF0;
+    border: 2px solid;
+    margin-top: 0.5rem;
+    border-radius: 3px;
+}
+
+.SecOneTitle2 h2{
+     text-align: center;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-size: 20px;
+     height: 4rem;
+     margin-bottom: -2.2rem;
+}
+.SecOneTitle2 hr{
+    width: 6rem;
+    color:  #239AF0;
+    border: 2px solid;
+    margin-top: 0;
+    border-radius: 3px;
+}
+    .Wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.WholeWrapper{
+    background-color: white;
+    width: 24%;
+    height: 26rem;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+.Name{
+    height: 3rem;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: #239AF0;
+    color: white;
+    
+}
+.Name p{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 0;
+    margin-top: 1rem;
+}
+.p1{
+    margin-left: 1rem;
+}
+.SecondSec{
+    height: 7rem;
+    display: flex;
+    flex-direction: row;
+    box-shadow: rgba(0, 0, 0, 0.084) 0px 0px 88px 0px, rgba(0, 0, 0, 0.112) 0px 0px 2px 0px;
+    
+}
+.SenderInfo{
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+.SenderInfo2{
+    margin-top: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+.SenderInfo3{
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+.Date{
+    width: 60px;
+    height: 60px;
+    background-color: #239AF0;
+    border-radius: 50%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    color: #239AF0;
+    border: 2px solid  #239AF0;
+    border-left: 2px solid white;
+    margin-left: 0.5rem;
+
+    
+}
+.Date:hover{
+    background-color: #239AF0;
+    color: white;
+    border: 2px solid rgba(0, 0, 0, 0.345);
+    border-right: 2px solid white;
+    transition: 2s;
+    
+}
+.Date h3{
+    margin-top: 0.5rem;
+}
+.Address{
+    height: 60px;
+    width: 75%;
+    margin-top: 1.3rem;
+    margin-left: 0.6rem;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.App_Email{
+    margin-top: 0.2rem;
+}
+.Email img{
+    margin-left: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 1rem;
+    
+}
+.Email{
+    display: flex;
+    flex-direction: row; 
+}
+.Request{
+    text-align: left;
+    height: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.084) 0px 0px 88px 0px, rgba(0, 0, 0, 0.112) 0px 0px 2px 0px;
+}
+.Request p{
+    margin-left: 0.8rem;
+    margin-top: 0.2rem;
+}
+.Prefered_Date{
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    margin-top: 0;
+    box-shadow: rgba(0, 0, 0, 0.084) 0px 0px 88px 0px, rgba(0, 0, 0, 0.112) 0px 0px 2px 0px;
+}
+.Prefered_Date img{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: 0.2rem;
+    margin-left: 1rem;
+}
+.Prefered_Date p{
+    text-align: center;
+    margin-top: 0.4rem;
+    margin-left: 0.5rem;
+}
+.Button button{
+    margin-top: 0.8rem;
+}
+.Phone{
+    height: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.Phone img{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.App_Phone{
+    margin-top: 0.3rem;
+}
+.Pagenation ul{
+display: flex;
+flex-direction: row;
+text-decoration: none;
+align-content: center;
+margin-left: 40%;
+ }
+.Pagenation ul li{
+    background-color: white;
+    color: #239AF0;
+    list-style-type: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    padding: 0.5rem;
+    margin-left: 0.3rem;
+    border: 2px solid  #239AF0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+}
+
+.Pagenation ul a{
+    text-decoration: none;
+}
+.Page{
+    text-align: center;
+    height: 2.5rem;
+}
+.Appointment{
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+table{
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+table, th, td{
+
+    padding: 1rem;
+    
+}
+
+thead th{
+    position: sticky;
+    top:0;
+    left: 0;
+    background-color: #239AF0;
+}
+tbody tr:nth-child(odd){
+    background-color: #0000000b;
+    transition: 1sec;
+}
+tbody tr:hover{
+    background-color: #fff6;
+    transition: 1sec;
+}
+main.table{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(7px);
+    border-radius: .8rem;
+    overflow: hidden;
+}
+.td1 img{
+    width: 36px;
+    height: 36px;
+    margin-right: .5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    background-color: red;
+}
+.table_header{
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    padding: .8rem 1rem;
+}
+.table_header h2{
+text-align: center;
+}
+.table_body{
+    width: 95%;
+    max-height: cal(89% - .8rem);
+    background-color: #fffb;
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+}
+.Approve_Btn{
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: white;
+    background-color:#239AF0;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding: 0.3rem;
+    margin: 1rem;
+    border-radius: 4px;
+}
+.Approved{
+    display: flex;
+    flex-direction: row;
+    margin-left: 6rem;
+}
+.Approved img{
+    margin-top: 1.1rem;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.2rem;
+}
+.Approved p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: green;
+}
+.Rejected{
+    display: flex;
+    flex-direction: row;
+    margin-left: 6rem;
+}
+.Rejected img{
+    margin-top: 1.1rem;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.2rem;
+}
+.Rejected p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: red;
+}
+.Approved_Status{
+    display: flex;
+    flex-direction: row;
+}
+.Approved_Status p{
+    margin: 0;
+    color: green;
+}
+.Approved_Status img{
+    height: 1.1rem;
+    width: 1.1rem;
+    margin-right: 0.2rem;
+    margin-top: 0.3rem;
+}
+
+</style>
+
+<div class="body_container">
+    {% if user.is_authenticated and user.is_dermatologist == True %}
+    <div class="SecOne">
+    {% if messages %}
+    <div>
+        <div>
+        {% for message in messages %}
+                <div>{{message}} </div>
+            {% endfor %}
+        </div>
+      </div> 
+    {% endif %}
+
+    <div class="SecOneTitle">
+        <div>
+            <h3>
+                Manage appointments
+                <hr>
+            </h3>
+        </div>
+    </div>
+       <div class="Wrapper">
+        {% for app in appointments %}
+            {% if app.derma_user == user.username %}
+        <div class="WholeWrapper">
+            <div class="Name">
+                <p class="p1">{{app.first_name}}</p>
+                <p> {{app.last_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{app.derma_user}}</p>
+                
+            </div>
+                <p class="SenderInfo">Sender Information</p>
+            <div class="SecondSec">
+                <div class="Date">
+                    <div>
+                        <h3>{{app.sent_date|date:"d"}} <br> {{app.sent_date|date:"M"}}</h3>
+                    </div>
+                        
+                </div>
+                <div class="Address">
+                    <div class="Email">
+                        <div>
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADQ0lEQVR4nO1aS2gUQRAdo/iJH/DiwYMfENRoPtu1iUGUeBQvCiJ6UBBRb4KoIGIgOSmCHoKStWoWAjl4iKAHvWlEgqD4gXjIJWqI0SgaM1WbiKghjvQum+yuUXeyn5ld+kHBsNNTn9c1NV3da1kGBgYGBgYGBgYGM6Kh7csyIGkGlOeA8hVI3EBL3Ed+Bijnte9WLgCMbQHiD74HNXsyhsGWhlkGP7YBSMT3IHIngcPR2HrvBJA88N35/Ml9T8HXRcaqAuB0XsVTFihbjvvtcN4F+aiX9G/23eH8S3P2BCC3lmEGtBoCsgWYDGDzCoDf72xgawDyZyC+ACjdvgc17dMdhXIOSN4Xg4A9esy+LncukNz2O3iFfMNy3Tlxv8nZXXACQnbsYHJc45WhRYDS41vwJPequtz5SX/CGDtU+AwgkXriuuTYms6PixXJw+KnvfRUXfu0ZCr46OhmhTxaDAJc3WbWRnhNcrzuuxXyoyIG3w04XDlln3htvPUt7kKIXwM6q6afGa4E4rsFT3uUm+va3AVJu6Gos1qhDPiyElQoA6mZ0NTizgOUjoIFT3zVanErMmZ+0NelsEIZqqfRTWnPk5wA5B/5C1y+hZGPpPvoVCuUd8HoBVA4jE5Tqg5lCyiUN7kTwP11Eac2zT+bd2ibAWuG+LsiPpyqp7pdliuUKBBPzkLfpEKOZG5sahvaVmC7QUXcmVqhk9kAyI896HmhKNaYqqOpw10IxG2l0g736m21NKUtbgXYsV169aiIJ2YgbgJQboWuy87UQqehawygvCyx/QD+CcQX9UIpU39N+/iKMPJehXxGi77Wv/0xLrHIupTQVaobIiiDIVv2Z87qv6D7jDDKASB5W0Y7QtwPxKdC0ZGVf7Or7wHyaUB+lXf7/hMgSUd+AXFfvFiSXNaSuOa+xL2C2Q0IAeSTGALYZIBlXoEsAaYGsCmC4HfVNl8BMZ9B8G0dQGV4PO6FAEV8zHeH8yyK+GTWBITssY3lR4CzPWsCNAJ19pe79Hppx+PQfyryvPEYTBkHZGXNBmBLw39PXIIs2nd0tlm5YGt0ZKk+elbET+NslsKMEz8BkrPa95yCNzAwMDAwMDAwsMoXvwFUIdDVrfpaqgAAAABJRU5ErkJggg==">
+                        </div>
+                        <div class="App_Email">{{app.email}}</div>
+                    </div>
+                    <div class="Phone">
+                        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsklEQVR4nO1UPUsDQRC9QgRBCwstBP0BATW5iRCCor2FP8CfYhEV7BQsJDJjtNHK0jqVit9tQC0t/AruTBRUEImMiRrl1tuLAZs8GLjdnffe7O7Nel4TTfwH0rliB5CZAJJ5QNkC4oKPfA0kBohfKyGmMseFSo7MKye2dNMe2bA/K51AsuiTPAJJuZ6ochdVy8l0IPvQ7SOfhQqj3GuE5/FpfPW+K9TYR8lZhVCmtLDRTLnlI1+/dU7XfuFRqDEQ3wQL8HNq4aLNxtM1zbHs+tphx/xkqTwfXrTkbfftOez4+IvALz7yLhDPJNfuesO4mqO5ylFujc5RqPEQcRyIZwFL40Et4SMfAvK+bfwB5aqGaqmmVw9im+VWQJ6r9rClffhKczTXawQSuWIPEO859zDKCaDp+5NpEktpIL6M/IAg38IKj9Vl6lMpFfRyvReDZtg2rv2TVSOyMRCfB+/GDPtkRqzj7/17Fsk0sWIG6n2jf0Z82QxGOGaZbJSxakUxztiEXO+45kebdjYG5HW7kPsdV4033I2JDxp11KrlaCo7jTP9jJ3/MUbZdj7uJprw/og3cNmUYvxuyIUAAAAASUVORK5CYII="></div>
+                        <div class="App_Phone">{{app.phone_no}}</div>
+                    </div>
+    
+                </div>
+            </div>
+            <p class="SenderInfo2">Request Details</p>
+            <div class="Request">
+                <p>{{app.request}}</p>
+            </div>
+            <p class="SenderInfo3">Prefered Date</p>
+            <div class="Prefered_Date">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC3klEQVR4nO1aPWgUURBehYiCjQiihWgjhoDRfbOHWkUEwR8QtfCniNhICgtLKw2IRRDEwuMu8y4YRQSJiBYWWogggiBBJJWIWkQTVMjObAwiaFx5u2/v9jZ38Qinb5fswHD75ubN7DffvPfulrWsFsUe5L0C+SNI9pUK5HFla3W+6fhVUYGjJPFkVkbiVyUK3myc9vjZAyIkHQZJk0l6k5pM1G61Wo5Pk4B0qEFF/g4iXUDYB+SJptRmCohs0HqLDgikTK0ciDTPAuSMyAwxkkvaBFLQJpAv9piYrmzOSFJMVzZnJCmmK5s2Rl4L5AeA/Awk/WjuR29B0kOB/EpI+pkaIAL5g4NciMfrLn1bo2424es66B6sy4vTnULSS+NAhOTv28repiBGxdsPyFdB8gk13nFlfAVI/hT4Iv0WknYru4Nuj/ITkk6pcaE4sxaQvppm5EZYWW87SJqN7A56vcoukC9o2301tge9nQLpV+QXPYQDpKJZRtA9q294oN5O5bD6Xq9m7qj2u5nwmxLI79UnGGUE6RZIPgfIo4mWOxNWms8HDA15m/V4FCRddNDbZ1foCCAPxxkCg63VCNwjQL+ja8RfBpLeKVtX8cvKkKFwU1CbQeKZWrUtUwKESj3D/nLL95eoamvbrNXvL1V5tpZpo0B6o/3HAGfW6TVyJxVABNJnQO+AirWlxKuC8yT2feGat1q3FtbP4wHNyuk0ABlzrk+tj23BE3PbbbpTA3mSAHI3nMd7jAJRu4095G7QrXR5Ht/gbNHnTG2+5P4wv3vSLBB9I3bF7QbJI3MU6UXoS4+jRS6Qnqt1I5CfqjYM88/5FeD/39ZCEtY8Ylf4WM2X+6r50O+oXXPfQvNb7WOELgXnSFOl28k14SAfhwrtUockIN9bcBFl/siUU6dWm7ffHAjkjHDeWr7p9QD5YpfmKw6LlhERezMnKyoavXSj/kNnCYz4V69B5WK1R/4AjpIZWibxcLsAAAAASUVORK5CYII=">
+               <p>{{app.prefered_date_time|date:'M d, Y h:i A'}} </p>
+            </div>
+            
+               {% if app.accepted == False and app.rejected == False %}
+                    <form method="POST" action="{% url 'manage' %}">
+                    {% csrf_token %}
+                    <div>
+                     
+                        <input hidden="true" name="appointment-id" value="{{app.id}}">
+                        <input class="Approve_Btn" type="submit" value="Approve" name="approve">
+                        <input class="Approve_Btn" type="submit" value="Reject" name="reject">
+                    </div>
+                    </form>
+
+                {% elif app.accepted == True and app.rejected == False %}
+                <div class="Approved">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtklEQVR4nO2Wv04CQRCHv2is7JXCRBJbGpXEaEx8BRNLQR9lFoiVT4B/XsAnUJ5ArBULE0tAaxOxwswd3B1k9zjuuMTCSSbhYG8/dnbmNwP/lsQabGJ4ReggFMnFhDKGKpeses93LCO0MAw918/6nZqu0bV1drNCCxh+RpAehlsM7QAaehvhZrRG/8yAC9azgA8skGSu72YAn6UGa8jnhBWosYfhHKGf4cT90R7l2WH3E2l8p4tzYYCw4wZreBYNDeEVN1jLQejmAO4F5Rhz6uuUm3949SscWk57FQ/1xeEpFVQoRfJk+vd2IDKWxCpOKFI6aMl7tt9xyy6vqr2uzWucIBwjfKWCmsBfbCfuOF9osOWtqXEUgc8LHdrB2nHcoX5D2IjA31NAHzyGM7nsTWAS3mRlLqjw6E6uZOUUwpOfVL0ZD00iIH6YDcJn4swXuvECkqdkGk7dYF95BjlAv6mzHR9ubWGqPtqLs7RFfxqpjvZa4+8OAosafWrsk9qEQuTONXRNryZtdaq/jYc9vdO5wzttOjloRkbHW1WhEHqPsBQpx8rsREprfifTYf7ZLYP/xoT9AryhnXNUoEaBAAAAAElFTkSuQmCC">
+                    <p>Approved</p> 
+                </div>
+                {% elif app.accepted == False and app.rejected == True %}
+                <div class="Rejected">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABo0lEQVR4nMWVTU4CQRCFP1wLNzBEENaCx1KW4MQNITFxxbAUJa4M7kUXCEcQjyH+3AHLVCziMHQPI5hQSSeTV1Wvul9XTcO2TSAvUBO4Eniwpd8n6tuE+EhgLCC2pgITW9MIPhKo/oU4I3Au8CXwLlAX2HfEFQQaAh8CM4GW5q4i3xG4s511BXZTbCgr0LOcfmIR27kG1lMf2UwgsNwWCZqrLF3WNPk5icpVcTnHpvmCLALlBMKyQy69kydXKy5JowSGhw7yjvlKMfzUlNiLgjULdnVLGC8SwdqO+KL5jqOgDs5rghThvIiroCP+beEuBR4Fnn0JagIXkeHqkGA2jIMooOM/+ccCLwL3cYmmCQmdTSWaX3IhiZxfzFtE4MB1yXlrrYanTdsOotDTpsFSm5pjZEOSjeGlBCni5DmBT4GhK7hqY37NmiZwYxyHvoCWHTtYg/zMcpur3oK+BfbicnlycrZzzblN8yZk7CQzuxP9txQ93RKY5hrbXEkeI6joX9E6Qnenva0TqkOk34qpb+jVPGWhPe1pe+EGti4NW2zFbdg39+JK0riQHEgAAAAASUVORK5CYII=">
+                    <p>Rejected</p> 
+                </div>
+                    {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    </div>
+        <center>
+<div class="Page">
+    {% if is_paginated %}
+    
+            
+            <div class="Pagenation">
+                <nav>
+                    <ul>
+                        
+                        {% if page_obj.has_previous %}
+                        <li><a href="?page={{page_obj.previous_page_number}}"><</a></li>
+                        {% endif %}
+                        {% for number in page_obj.paginator.page_range %}
+                        <li ><a  href="?page={{number}}">{{number}}</a></li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li><a href="?page={{page_obj.next_page_number}}">></a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            
+
+    {% endif %}
+</div>
+</center>
+
+<div class="Appointmnet">
+    <div class="SecOneTitle2 ">
+        <h2>Upcomming Appointmnets</h2>
+        <hr>
+    </div>
+    <main class="table">
+        <section class="table_body">
+            
+            <table id="tbc">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date &Time</th>
+                        <th>Remaining Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                {% for app in appointments %}
+                {% if app.derma_user == user.username%}
+                    {% if app.accepted == True %}
+                    <tbody>
+                        <tr class="tr">
+                            <td class="td1"><img src="" alt="">{{app.first_name}} {{app.last_name}}</td>
+                            
+                            <td id="event_date">{{app.prefered_date_time|date:'M d, Y h:i A'}}</td>
+                            <td id="countdown" class="apps">{{app.prefered_date_time|timeuntil}}</td>
+                            <td>
+                                <div class="Approved_Status">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtklEQVR4nO2Wv04CQRCHv2is7JXCRBJbGpXEaEx8BRNLQR9lFoiVT4B/XsAnUJ5ArBULE0tAaxOxwswd3B1k9zjuuMTCSSbhYG8/dnbmNwP/lsQabGJ4ReggFMnFhDKGKpeses93LCO0MAw918/6nZqu0bV1drNCCxh+RpAehlsM7QAaehvhZrRG/8yAC9azgA8skGSu72YAn6UGa8jnhBWosYfhHKGf4cT90R7l2WH3E2l8p4tzYYCw4wZreBYNDeEVN1jLQejmAO4F5Rhz6uuUm3949SscWk57FQ/1xeEpFVQoRfJk+vd2IDKWxCpOKFI6aMl7tt9xyy6vqr2uzWucIBwjfKWCmsBfbCfuOF9osOWtqXEUgc8LHdrB2nHcoX5D2IjA31NAHzyGM7nsTWAS3mRlLqjw6E6uZOUUwpOfVL0ZD00iIH6YDcJn4swXuvECkqdkGk7dYF95BjlAv6mzHR9ubWGqPtqLs7RFfxqpjvZa4+8OAosafWrsk9qEQuTONXRNryZtdaq/jYc9vdO5wzttOjloRkbHW1WhEHqPsBQpx8rsREprfifTYf7ZLYP/xoT9AryhnXNUoEaBAAAAAElFTkSuQmCC">
+                                <p>Approved</p> 
+                            </div>
+                            </td>
+                        
+                            
+                        </tr>
+                    </tbody>
+                    {% endif %}
+                {% endif %}
+                    {% endfor %}
+            </table>
+            
+        </section>
+    </main>
+   
+</div>
+
+    {% else %}
+    <div>
+        <h2>You are not authenticated </h2>
+    </div>
+    {% endif %}
+        <!-- <div>
+        <center>
+    
+            <div>
+                <h2>Upcoming Events</h2>
+            </div>
+            {% for app in appointments %}
+            {% if app.accepted == True %}
+            <div>
+                {{app.prefered_date}} , {{app.prefered_time}} <br>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </center>
+    </div> -->
+        {% endblock %}
+</div>
+    

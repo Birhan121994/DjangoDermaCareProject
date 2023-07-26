@@ -1,0 +1,86 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% block title %}
+{% load %}
+{% if user.is_authenticated and user.is_dermatologist == True %}
+<title>DermaCare Website - Dermatologist profile Page</title>
+{% endif %}
+
+{% if user.is_authenticated and user.is_patient == True %}
+<title>DermaCare Website - Patient profile Page</title>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="body_container">
+
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+    <link rel="stylesheet" href="{% static 'UserAccount/Update_Userprofile_setting.css'%}">
+    <link rel="stylesheet" href="{% static 'UserAccount/Update_textarea.css'%}">
+    <!-- <link rel="stylesheet" href="{% static 'DermaCareApp/DermatologistBlog.css'%}"> -->
+    {% if user.is_authenticated %}
+    <div class="blogpost_container">
+        <div class="blogcontainer_partone">
+            {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True %}
+                <div class="blogcontainer_partone_subpartone">
+                    <div>
+                        {% if user.userprofile.profile_picture %}
+                            <img src="{{user.userprofile.profile_picture.url}}" width = "80" height="80">
+                            {% else %}
+                            <img src="{% static 'DermaCareApp/images/icons8-user-64.png' %}" width="50" height="50">
+                        {% endif %}
+                    </div>
+
+                    <div class="sidebar_emailandusername">
+                        <h4 class="sidebar_username">{{user.username}}</h4>
+                        <h4>{{user.email}}</h4>
+                    </div>
+                </div>
+                <div class="blogcontainer_partone_subparttwo">
+                    {% endif %}
+        
+                    {% if user.is_authenticated and user.is_dermatologist == True or user.is_patient == True%}
+                            <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/22/FFFFFF/external-logout-ui-essentials-kmg-design-basic-outline-kmg-design.png"/>
+                                </div>
+                                <div>
+                                <button><a href="{% url 'DermaBlogPage' %}">Back</a></button>
+                                </div>
+                            </div>
+                            <div class="blog_sidebar_menu">
+                                <div>
+                                    <img src="https://img.icons8.com/ios/22/FFFFFF/help--v1.png"/>
+                                </div>
+                                <div>
+                                <button class="help_btn"><a href="#">Help</a></button>
+                                </div>
+                            </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="blogcontainer_parttwo">
+            {% if user.is_authenticated and user.is_dermatologist == True %}
+            <h2>Update Dermatologist Profile</h2>
+            {% endif %}
+
+            {% if user.is_authenticated and user.is_patient == True %}
+            <h2>Update Patient Profile</h2>
+            {% endif %}
+            <a href="{% url 'ChangePasswordPage' %}" class="ChangePassword">Change Password</a>
+            <form method="POST">
+                {% csrf_token %}
+                
+                {{form.as_p}}
+                <button class="publish_post">Update Profile</button>
+            </form>
+            
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
+

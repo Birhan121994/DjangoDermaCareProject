@@ -1,0 +1,16 @@
+.No_Category_list_container{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #339AF0;
+    margin-bottom: 6rem;
+    margin-left: 2rem;
+    width: 100%;
+}
+.info_detail p{
+    font-size: 17px;
+    line-height: 1.5rem;
+    text-align: justify;
+}

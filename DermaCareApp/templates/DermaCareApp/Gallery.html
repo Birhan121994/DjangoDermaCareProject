@@ -1,0 +1,90 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% block title %}
+    <title>DermaCare Website - Gallery</title>
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'DermaCareApp/Gallery.css' %}">
+<link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+<script src="{% static 'DermaCareApp/gallery.js' %}" defer></script>
+<div class="body_container">
+    <div class="Container">
+        <div class="SideBar">
+                 <button type="button" class="Filter" id="filter">Filter Images  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nGNgIAFYMDAwvGBgYHiHA++BKVRkYGD4wcDA8B8HXodsajsORT8ZGBhUkRXyMDAwPMWiEGQABkhAUwRyNx82hYwMDAwnkRSCNOINgX8MDAxnGRgYmAgFVzi6B0gCAN3QJUJ3BeVrAAAAAElFTkSuQmCC"></button>
+                    <div class="DiseaseCategory">
+                        <a href="{% url 'atopic' %}">AtopicDermatitis</a>
+                        <a href="{% url 'basal' %}">BasalCell</a>
+                        <a href="{% url 'benign' %}">BenignKeratosis</a>
+                        <a href="{% url 'eczema' %}">Eczema</a>
+                        <a href="{% url 'melanocytic' %}">MelanocyticNevi</a>
+                        <a href="{% url 'melanoma' %}">Melanoma</a>
+                        <a href="{% url 'psorasis' %}">Psorasis</a>
+                        <a href="{% url 'seborrhiec' %}">Seborrhiec</a>
+                        <a href="{% url 'tinearing' %}">TineaRingworm</a>
+                        <a href="{% url 'warts' %}">WartsMolluscum</a>
+                    </div>
+                    
+                    <form method="POST" action="https://api.chapa.co/v1/hosted/pay" class="Form">
+                        <input type="hidden" name="public_key" value="CHAPUBK_TEST-VMYug5akZxZi97bJ4uFA9xaVLVXlQOpg" />
+                        <input type="hidden" name="tx_ref" id="myInput" readonly/>
+                        <input type="hidden" name="amount" value="100" />
+                        <input type="hidden" name="currency" value="ETB" />
+                        <input type="hidden" name="email" value="biny452@gmail.com"/>
+                        <input type="hidden" name="first_name" value="Binyam" />
+                        <input type="hidden" name="last_name" value="Natta" />
+                        <input type="hidden" name="title" value="Let us do this" />
+                        <input type="hidden" name="description" value="Paying with Confidence with chapa"/>
+                        <input type="hidden" name="logo" value="https://chapa.link/asset/images/chapa_swirl.svg" />
+                        <input type="hidden" name="callback_url" value="http://127.0.0.1:8000/Download/" />
+                        <input type="hidden" name="return_url" value="http://127.0.0.1:8000/Download/" />
+                        <input type="hidden" name="meta[title]" value="test" />
+                        <button type="submit" class="Download" onclick="generateRandomUUID()">Download</button>
+                    </form>
+                    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+                    <script>
+                      function generateRandomUUID(){
+                        const uuid = uuidv4();
+                        document.getElementById("myInput").value = uuid;
+                      }
+                    </script>
+                 <button class="Back"><a  href="{% url 'HomePage' %}">Back</a></button>       
+        </div>
+        <div class="Whole-Container">
+            <div class="Image-Container">
+                <div class="Image"><img src="{% static 'All/1.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/2.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/3.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/4.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/5.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/6.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/7.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/8.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/9.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/10.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/11.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/12.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/13.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/14.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/15.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/16.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/17.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/18.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/19.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/2.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/21.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/22.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/23.jpg' %}" alt=""></div>
+                <div class="Image"><img src="{% static 'All/24.jpg' %}" alt=""></div>
+            </div>
+           
+            <div class="Popup-Image">
+                <span>&times;</span>
+                <img src="{% static 'Images/3.jpg' %}" alt="">
+            </div>
+     </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}
+<title>DermaCare Website - DermaBlogComment Page</title>
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+    <link rel="stylesheet" href="{% static 'DermaCareApp/Add_New_Comment.css'%}">
+    <div class="body_container">
+        <div class="form_container">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.media}}
+                {{form.as_p}}
+                <button class="Add_Comment_button">Add Comment</button>
+            </form>
+        </div>
+        <script>
+            var commenter_id = "{{user.id}}";
+            document.getElementById("Commenter_name").value = commenter_id;
+        </script>
+
+        
+    </div>
+{% endblock %}

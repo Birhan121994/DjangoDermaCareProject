@@ -1,0 +1,516 @@
+{% extends 'DermaCareApp/base.html' %}
+{% load static %}
+{% block title %}
+    <title>DermaCare Website - Homepage</title>
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'DermaCareApp/homeresponsive.css'%}">
+    <div class="body_container">
+
+        <div class="slideshow_container">
+          
+            <div class="first_slideshow_text_container">
+
+                <div class="container">
+                    <div class="row">
+                        <span class="text1">
+                          <h4>Helping you</h4>
+                        </span>
+                        <span class="text2">
+                            <h4>Dermatology and Skin Care</h4>
+                            <p>Check our services related to Dermatology and skin care</p>
+                        </span>
+                    </div>
+
+                    <div class="slideshow_btns">
+
+                        <button class="check_btn1">Check services</button>
+                        <button class="info_btn2">More info</button>
+    
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="second_content">
+            <div class="second_content_one">
+                <h2>Tasks of our site</h2>
+                <span><hr></span>
+            </div>
+            <div class="second_content_two">
+                <div class="col1">
+                    <a href="">Skin Disease Prediction</a>
+                </div>
+                <div class="col2">
+                    <a href="">Medical Consultancy</a>
+                </div>
+                <div class="col3">
+                    <a href="">Data Store</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main_container">
+            <input type="radio" name="dot" id="one">
+            <input type="radio" name="dot" id="two">
+            <input type="radio" name="dot" id="three">
+            <input type="radio" name="dot" id="four" class="ra4">
+            <div class="third_content_one">
+              <h2>Our Dermatologists</h2>
+              <span><hr></span>
+          </div>
+            <div class="main-card">
+              
+              <div class="cards">
+                <!-- <div class="card" id="card3">
+                 <div class="content">
+                   <div class="img">
+                     <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t1.jpg" alt="">
+                   </div>
+                   <div class="details">
+                     <div class="name">Dr. Mark Lowson</div>
+                     <div class="job">Dermatologist</div>
+                   </div>
+
+                   <div class="schedule_period">
+                      <table style="border-collapse: collapse;">
+                        <tr>
+                          <td>Monday-Friday</td>
+                          <td>12:00-17:00</td>
+                        </tr>
+
+                        <tr>
+                          <td>Saturday</td>
+                          <td>10:00-16:00</td>
+                        </tr>
+                        <tr>
+                          <td>Sunday</td>
+                          <td>12:00-14:00</td>
+                        </tr>
+                      </table>
+                   </div>
+                   
+                   <div class="media-icons">
+                     <a href="#"><i class="fab fa-facebook-f"></i></a>
+                     <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                   </div>
+                 </div>
+                </div>
+                <div class="card" id="card2">
+                 <div class="content">
+                   <div class="img">
+                    <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t5.jpg" alt="">
+                   </div>
+                   <div class="details">
+                     <div class="name">Dr. Mark Lowson</div>
+                     <div class="job">Dermatologist</div>
+                   </div>
+
+                   <div class="schedule_period">
+                    <table style="border-collapse: collapse;">
+                      <tr>
+                        <td>Monday-Friday</td>
+                        <td>12:00-17:00</td>
+                      </tr>
+
+                      <tr>
+                        <td>Saturday</td>
+                        <td>10:00-16:00</td>
+                      </tr>
+                      <tr>
+                        <td>Sunday</td>
+                        <td>12:00-14:00</td>
+                      </tr>
+                    </table>
+                 </div>
+
+                   <div class="media-icons">
+                     <a href="#"><i class="fab fa-facebook-f"></i></a>
+                     <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                   </div>
+                 </div>
+                </div> -->
+                {% for dermas in OurDermatologists %}                
+                <div class="card" id="card5">
+                
+                 <div class="content">
+                   <div class="img">
+                    <img src="{{dermas.DermaImages.url}}">
+                   </div>
+                   <div class="details">
+                     <div class="name">{{dermas.DermaNames}}</div>
+                     <div class="job">{{dermas.speciality}}</div>
+                   </div>
+                   
+
+                   <div class="schedule_period">
+                    <table style="border-collapse: collapse;">
+                      <tr>
+                        <td>Monday-Friday</td>
+                        <td>12:00-17:00</td>
+                      </tr>
+
+                      <tr>
+                        <td>Saturday</td>
+                        <td>10:00-16:00</td>
+                      </tr>
+                      <tr>
+                        <td>Sunday</td>
+                        <td>12:00-14:00</td>
+                      </tr>
+                    </table>
+                 </div>
+
+                   <div class="media-icons">
+                     <a href="#"><i class="fab fa-facebook-f"></i></a>
+                     <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                   </div>
+                 </div>
+                
+                </div>
+                {% endfor %}
+                
+              </div>
+
+              
+
+              
+              
+              <div class="cards">
+                <div class="card">
+                 <div class="content">
+                   <div class="img">
+                    <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t3.jpg" alt="">
+                   </div>
+                   <div class="details">
+                     <div class="name">Dr.Mark Lowson</div>
+                     <div class="job">Dermatologist</div>
+                   </div>
+
+                   <div class="schedule_period">
+                    <table style="border-collapse: collapse;">
+                      <tr>
+                        <td>Monday-Friday</td>
+                        <td>12:00-17:00</td>
+                      </tr>
+
+                      <tr>
+                        <td>Saturday</td>
+                        <td>10:00-16:00</td>
+                      </tr>
+                      <tr>
+                        <td>Sunday</td>
+                        <td>12:00-14:00</td>
+                      </tr>
+                    </table>
+                 </div>
+
+                   <div class="media-icons">
+                     <a href="#"><i class="fab fa-facebook-f"></i></a>
+                     <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                   </div>
+                 </div>
+                </div>
+                <div class="card">
+                 <div class="content">
+                   <div class="img">
+                    <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t1.jpg" alt="">
+                   </div>
+                   <div class="details">
+                     <div class="name">Dr.Mark Lowson</div>
+                     <div class="job">Dermatologist</div>
+                   </div>
+
+                   <div class="schedule_period">
+                    <table style="border-collapse: collapse;">
+                      <tr>
+                        <td>Monday-Friday</td>
+                        <td>12:00-17:00</td>
+                      </tr>
+
+                      <tr>
+                        <td>Saturday</td>
+                        <td>10:00-16:00</td>
+                      </tr>
+                      <tr>
+                        <td>Sunday</td>
+                        <td>12:00-14:00</td>
+                      </tr>
+                    </table>
+                 </div>
+
+                   <div class="media-icons">
+                     <a href="#"><i class="fab fa-facebook-f"></i></a>
+                     <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                   </div>
+                 </div>
+                </div>
+                <div class="card">
+                 <div class="content">
+                   <div class="img">
+                    <img src="https://promo-theme.com/medina-wp/wp-content/uploads/2016/10/t7.jpg" alt="">
+                   </div>
+                   <div class="details">
+                     <div class="name">Dr.Mark Lowson</div>
+                     <div class="job">Dermatologist</div>
+                   </div>
+
+                   <div class="schedule_period">
+                    <table style="border-collapse: collapse;">
+                      <tr>
+                        <td>Monday-Friday</td>
+                        <td>12:00-17:00</td>
+                      </tr>
+
+                      <tr>
+                        <td>Saturday</td>
+                        <td>10:00-16:00</td>
+                      </tr>
+                      <tr>
+                        <td>Sunday</td>
+                        <td>12:00-14:00</td>
+                      </tr>
+                    </table>
+                 </div>
+
+
+                   <div class="media-icons">
+                     <a href="#"><i class="fab fa-facebook-f"></i></a>
+                     <a href="#"><i class="fab fa-twitter"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                   </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+            <div class="button">
+              <label for="one" class=" active one"></label>
+              <label for="two" class="two"></label>
+              <label for="three" class="three"></label>
+              <label for="four" class="four"></label>
+            </div>
+          </div>
+
+        <div class="main_body_third_container">
+          <div class="main_body_third_container_partone">
+                <h2>Our Services</h2>
+                <span><hr></span>
+          </div>
+
+          <div class="main_body_third_container_parttwo">
+            <div class="main_body_container_subpartone">
+              <div class="ro1">
+                <div class="cll1">
+                  <img src="https://img.icons8.com/ios-filled/50/339AF0/big-data.png"/>
+                </div>
+                <div class="cll2">
+                  <h2>Appointements </h2>
+                  <p>Businesses use data stores to manage, categorize, 
+                    and streamline data for operations, analysis, reporting, 
+                    and data retention, which is important for regulatory compliance. 
+                  </p>
+                </div>
+              </div>
+              <div class="ro2">
+                <div class="cll3">
+                  <img src="https://img.icons8.com/ios-filled/50/339AF0/big-data.png"/>
+                </div>
+                <div class="cll4">
+                  <h2>Data store</h2>
+                  <p>Businesses use data stores to manage, categorize, 
+                    and streamline data for operations, analysis, reporting, 
+                    and data retention, which is important for regulatory compliance. 
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="main_body_container_subpartwo">
+              <div class="ro3">
+                <div class="cll5">
+                  <img src="https://img.icons8.com/ios-filled/50/339AF0/big-data.png"/>
+                </div>
+                <div class="cll6">
+                  <h2>Skin disease prediction</h2>
+                  <p>Businesses use data stores to manage, categorize, 
+                    and streamline data for operations, analysis, reporting, 
+                    and data retention, which is important for regulatory compliance. 
+                  </p>
+                </div>
+              </div>
+
+              <div class="ro4">
+                <div class="cll7">
+                  <img src="https://img.icons8.com/ios-filled/50/339AF0/big-data.png"/>
+                </div>
+                <div class="cll8">
+                  <h2>Medical consultancy</h2>
+                  <p>Businesses use data stores to manage, categorize, 
+                    and streamline data for operations, analysis, reporting, 
+                    and data retention, which is important for regulatory compliance. 
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="main_body_fourth_container">
+
+            <div class="main_body_fourth_container_subpart">
+              
+              <div class="main_body_fourth_container_partone">
+                <div>
+                  <img src="https://img.icons8.com/dotty/64/339AF0/heart-with-pulse.png"/>
+                </div>
+                <div class="over_p">
+                  <p>over</p>
+                </div>
+                <div class="numbers">
+                  <h2 id="num1" >278</h2>
+                </div>
+                <div class="saved_texts">
+                  <p>saved hearts</p>
+                </div>
+              </div>
+
+              <div class="main_body_fourth_container_parttwo">
+                <div>
+                  <img src="https://img.icons8.com/dotty/64/339AF0/heart-with-pulse.png"/>
+                </div>
+                <div class="over_p">
+                  <p>over</p>
+                </div>
+                <div class="numbers">
+                  <h2 id="num2">2789</h2>
+                </div>
+                <div class="saved_texts">
+                  <p>saved lungs</p>
+                </div>
+              </div>
+             
+
+              <div class="main_body_fourth_container_partthree">
+                <div>
+                  <img src="https://img.icons8.com/dotty/64/339AF0/heart-with-pulse.png"/>
+                </div>
+                <div class="over_p">
+                  <p>over</p>
+                </div>
+                <div class="numbers">
+                  <h2 id="num3">2278</h2>
+                </div>
+                <div class="saved_texts">
+                  <p>saved tooth</p>
+                </div>
+              </div>
+
+              <div class="main_body_fourth_container_partfour">
+                <div>
+                  <img src="https://img.icons8.com/dotty/64/339AF0/heart-with-pulse.png"/>
+                </div>
+                <div class="over_p">
+                  <p>over</p>
+                </div>
+                <div class="numbers">
+                  <h2 id="num4">278</h2>
+                </div>
+                <div class="saved_texts">
+                  <p>saved stomaches</p>
+                </div>
+              </div>
+
+            </div>
+         </div>
+
+         <div class="latest_post_container">
+          <div class="latest_post_container_subpart">
+            <div class="latest_post_header">
+              <h2>Latest from news</h2>
+              <hr>
+            </div>
+            <div class="latest_post_container_cards">
+              {% for news in LatestNews %}
+
+              <div class="latest_post_container_cards_one">
+                <div class="latest_post_card_img">
+                  <img src="{{news.LatestNewsImage.url}}">
+                </div>
+
+                <div class="latest_post_card_title">
+                  <h4>{{news.newstitle}}</h4>
+                </div>
+                <div class="latest_post_card_date">
+                  <a href="#">{{news.newsauthor}}</a>
+                  <span><small>{{news.date_published|date:"F d , Y"}}</small></span>
+                </div>
+                <div class="latest_post_cards_content">
+                  <p>{{news.sample_content}}</p>
+                </div>
+                <div class="latest_post_card_readmore">
+                  <button>Read More</button>
+                </div>
+              </div>
+              {% endfor %}
+              
+
+              <!-- <div class="latest_post_container_cards_two">
+                <div class="latest_post_card_img">
+                  <img src="https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg">
+                </div>
+                <div class="latest_post_card_title">
+                  <h4>Researches</h4>
+                </div>
+                <div class="latest_post_card_date">
+                  <p>10/20/2034 G.C</p>
+                </div>
+                <div class="latest_post_cards_content">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                     Animi vero veritatis temporibus, nobis reiciendis exercitationem aperiam commodi amet doloremque sequi quisquam aspernatur incidunt! Quisquam error deserunt minus, 
+                     nobis doloribus tempore!</p>
+                </div>
+                <div class="latest_post_card_readmore">
+                  <button>Read More</button>
+                </div>
+              </div>
+              <div class="latest_post_container_cards_three">
+                <div class="latest_post_card_img">
+                  <img src="https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg">
+                </div>
+                <div class="latest_post_card_title">
+                  <h4>Researches</h4>
+                </div>
+                <div class="latest_post_card_date">
+                  <p>10/20/2034 G.C</p>
+                </div>
+                <div class="latest_post_cards_content">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Animi vero veritatis temporibus, nobis reiciendis exercitationem aperiam commodi amet doloremque sequi quisquam aspernatur incidunt! Quisquam error deserunt minus, 
+                    nobis doloribus tempore!</p>
+                </div>
+                <div class="latest_post_card_readmore">
+                  <button>Read More</button>
+                </div>
+              </div> -->
+            </div>
+            
+          </div>
+         </div>
+
+        
+    </div>
+{% endblock %}
