@@ -161,18 +161,6 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-AUTHENTICATION_BACKENDS = [
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.github.GithubOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-    'social_core.backends.open_id.OpenIdAuth',
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.google.GoogleOAuth',
-    'allauth.account.auth_backends.AuthenticationBackend',
-    
-]
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'HomePage'
